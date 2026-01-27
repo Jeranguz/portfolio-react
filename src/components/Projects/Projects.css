@@ -76,10 +76,17 @@
 
 .tech-tag {
   padding: var(--spacing-xs) var(--spacing-sm);
-  background-color: var(--color-gray-200);
+  background-color: var(--color-bg-tertiary);
   color: var(--color-text-primary);
   border-radius: var(--radius-sm);
   font-size: var(--font-size-xs);
+  transition: all var(--transition-fast);
+}
+
+.tech-tag:hover {
+  background-color: var(--color-accent);
+  color: var(--color-white);
+  transform: translateY(-2px);
 }
 
 .project-results ul {
