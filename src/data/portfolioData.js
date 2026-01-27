@@ -322,7 +322,7 @@ export const socialLinks = [
   },
   {
     name: "GitHub",
-    url: "https://github.com/jeremygzm",
+    url: "https://github.com/Jeranguz",
     icon: "github"
   },
   {

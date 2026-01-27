@@ -17,7 +17,7 @@ const Projects = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.2 }}
-              whileHover={{ y: -10 }}
+              whileHover={{ y: -10, transition: { duration: 0.1 } }}
             >
               <div className="project-header">
                 <span className="project-category">{project.category}</span>

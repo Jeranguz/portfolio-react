@@ -15,32 +15,41 @@ const About = () => {
           <h2 className="section-title">Sobre Mí</h2>
           
           <div className="about-content">
+            <motion.div
+              className="about-image"
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <img src="/profile.png" alt="Jeremy Andrés Guzmán Vargas" />
+            </motion.div>
+            
             <div className="about-text">
-              <p className="about-bio">{personalInfo.bio}</p>
-              
-              <div className="about-story">
-                <h3>Mi Historia</h3>
-                {personalInfo.story.map((paragraph, index) => (
-                  <motion.p
-                    key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.2 }}
-                  >
-                    {paragraph}
-                  </motion.p>
-                ))}
-              </div>
+              <motion.p
+                className="about-bio"
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+              >
+                {personalInfo.bio}
+              </motion.p>
 
-              <div className="about-education">
+              <motion.div
+                className="about-education"
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4 }}
+              >
                 <h3>Educación</h3>
                 <div className="education-item">
                   <h4>{education.degree}</h4>
                   <p className="education-institution">{education.institution}</p>
                   <p className="education-period">{education.period}</p>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </div>
         </motion.div>
