@@ -1,11 +1,17 @@
 import { motion } from 'framer-motion';
-import { FiArrowDown } from 'react-icons/fi';
+import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa';
 import { personalInfo, socialLinks } from '../../data/portfolioData';
 import './Hero.css';
 
 const Hero = () => {
-  const scrollToAbout = () => {
-    document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' });
+  const getIcon = (iconName) => {
+    const icons = {
+      linkedin: FaLinkedin,
+      github: FaGithub,
+      email: FaEnvelope
+    };
+    const Icon = icons[iconName];
+    return Icon ? <Icon /> : null;
   };
 
   return (
@@ -96,25 +102,11 @@ const Hero = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.8 + index * 0.1 }}
               >
-                <span className="visually-hidden">{link.name}</span>
+                {getIcon(link.icon)}
               </motion.a>
             ))}
           </motion.div>
         </motion.div>
-
-        <motion.button
-          className="scroll-indicator"
-          onClick={scrollToAbout}
-          aria-label="Scroll to about section"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1, y: [0, 10, 0] }}
-          transition={{
-            opacity: { delay: 1 },
-            y: { repeat: Infinity, duration: 1.5 }
-          }}
-        >
-          <FiArrowDown />
-        </motion.button>
       </div>
     </section>
   );

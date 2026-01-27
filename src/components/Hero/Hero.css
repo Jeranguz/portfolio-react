@@ -120,19 +120,6 @@
   box-shadow: var(--shadow-md);
 }
 
-.scroll-indicator {
-  position: absolute;
-  bottom: var(--spacing-2xl);
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: transparent;
-  color: var(--color-accent);
-  font-size: var(--font-size-3xl);
-  cursor: pointer;
-  border: none;
-  padding: var(--spacing-sm);
-}
-
 @media (max-width: 768px) {
   .hero {
     padding-top: 60px;
@@ -145,5 +132,9 @@
 
   .btn {
     width: 100%;
+  }
+
+  .scroll-indicator {
+    bottom: var(--spacing-lg);
   }
 }
