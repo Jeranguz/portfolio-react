@@ -98,9 +98,15 @@ const Hero = () => {
                 aria-label={link.name}
                 className="social-link"
                 whileHover={{ scale: 1.2, y: -5 }}
+                whileTap={{ scale: 0.95 }}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.8 + index * 0.1 }}
+                transition={{ 
+                  opacity: { delay: 0.8 + index * 0.1 },
+                  y: { delay: 0.8 + index * 0.1 },
+                  scale: { duration: 0.15 },
+                  default: { duration: 0.15 }
+                }}
               >
                 {getIcon(link.icon)}
               </motion.a>
