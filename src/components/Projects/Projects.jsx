@@ -1,8 +1,16 @@
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import { projects } from '../../data/portfolioData';
 import './Projects.css';
 
 const Projects = () => {
+  const navigate = useNavigate();
+
+  const handleProjectClick = (projectId) => {
+    navigate(`/project/${projectId}`);
+    window.scrollTo(0, 0);
+  };
+
   return (
     <section id="projects" className="projects section">
       <div className="container">
@@ -18,6 +26,7 @@ const Projects = () => {
               viewport={{ once: true }}
               transition={{ delay: index * 0.2 }}
               whileHover={{ y: -10, transition: { duration: 0.1 } }}
+              onClick={() => handleProjectClick(project.id)}
             >
               <div className="project-header">
                 <span className="project-category">{project.category}</span>
