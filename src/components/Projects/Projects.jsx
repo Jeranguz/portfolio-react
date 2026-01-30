@@ -44,10 +44,10 @@ const Projects = () => {
                 <strong>Tecnologías:</strong>
                 <div className="tech-stack">
                   {project.technologies.frontend.slice(0, 3).map(tech => (
-                    <span key={tech} className="tech-tag">{tech}</span>
+                    <span key={tech} className="tech-badge">{tech}</span>
                   ))}
                   {project.technologies.backend.slice(0, 2).map(tech => (
-                    <span key={tech} className="tech-tag">{tech}</span>
+                    <span key={tech} className="tech-badge">{tech}</span>
                   ))}
                 </div>
               </div>

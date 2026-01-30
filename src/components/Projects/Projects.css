@@ -22,7 +22,6 @@
 
 .project-card:hover {
   box-shadow: var(--shadow-2xl);
-  transform: scale(1.02);
 }
 
 .project-header {
@@ -76,7 +75,7 @@
   margin-top: var(--spacing-xs);
 }
 
-.tech-tag {
+.tech-badge {
   padding: var(--spacing-xs) var(--spacing-sm);
   background-color: var(--color-bg-tertiary);
   color: var(--color-text-primary);
@@ -85,7 +84,7 @@
   transition: all var(--transition-fast);
 }
 
-.tech-tag:hover {
+.tech-badge:hover {
   background-color: var(--color-accent);
   color: var(--color-white);
   transform: translateY(-2px);

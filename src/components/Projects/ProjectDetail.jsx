@@ -136,7 +136,7 @@ const ProjectDetail = () => {
               <h3>Frontend</h3>
               <div className="tech-tags">
                 {project.technologies.frontend.map(tech => (
-                  <span key={tech} className="tech-tag">{tech}</span>
+                  <span key={tech} className="tech-badge">{tech}</span>
                 ))}
               </div>
             </motion.div>
@@ -151,7 +151,7 @@ const ProjectDetail = () => {
               <h3>Backend</h3>
               <div className="tech-tags">
                 {project.technologies.backend.map(tech => (
-                  <span key={tech} className="tech-tag">{tech}</span>
+                  <span key={tech} className="tech-badge">{tech}</span>
                 ))}
               </div>
             </motion.div>
@@ -166,7 +166,7 @@ const ProjectDetail = () => {
               <h3>DevOps</h3>
               <div className="tech-tags">
                 {project.technologies.devops.map(tech => (
-                  <span key={tech} className="tech-tag">{tech}</span>
+                  <span key={tech} className="tech-badge">{tech}</span>
                 ))}
               </div>
             </motion.div>
