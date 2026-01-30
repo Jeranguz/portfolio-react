@@ -281,7 +281,7 @@ const ProjectDetail = () => {
       {/* Navigation */}
       <section className="project-navigation">
         <div className="container">
-          <button onClick={handleBackClick} className="btn-primary">
+          <button onClick={handleBackClick} className="btn-rounded">
             Ver más proyectos
           </button>
         </div>
