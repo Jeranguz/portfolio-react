@@ -3,12 +3,12 @@
 export const personalInfo = {
   name: "Jeremy Andrés Guzmán Vargas",
   role: "Full Stack Developer",
-  tagline: "Building scalable, data-driven web applications with passion for clean code and UX",
+  tagline: "Construyendo aplicaciones web escalables y orientadas a datos con pasión por el código limpio y la UX",
   location: "Belén, Heredia, Costa Rica",
   email: "Jeremyu4231@gmail.com",
   phone: "+506 6202-5052",
   linkedin: "linkedin.com/in/jeremygzm",
-  bio: `Full Stack Developer with hands-on experience building and supporting scalable, data-driven web applications in Agile environments. Skilled in modern frontend frameworks like React and Angular, RESTful API development, relational databases, and containerized deployments. Experienced collaborating with cross-functional teams and stakeholders to translate business requirements into reliable technical solutions.`,
+  bio: `Desarrollador Full Stack con experiencia práctica en la construcción y soporte de aplicaciones web escalables y orientadas a datos en entornos Ágiles. Hábil en frameworks frontend modernos como React y Angular, desarrollo de APIs RESTful, bases de datos relacionales y despliegues contenerizados. Experimentado en colaboración con equipos multifuncionales y stakeholders para traducir requerimientos de negocio en soluciones técnicas confiables.`,
   story: [
     "Desde 2022, he estado inmerso en el mundo del desarrollo web full stack, trabajando en proyectos que desafían mis habilidades técnicas y creativas.",
     "Mi pasión por la tecnología comenzó con la curiosidad de entender cómo funcionan las aplicaciones que usamos diariamente, y esa curiosidad me llevó a estudiar Informática y Tecnología Multimedia en la Universidad de Costa Rica.",
@@ -77,54 +77,54 @@ export const skills = {
 export const experience = [
   {
     id: 1,
-    role: "Full Stack Developer & Frontend Lead",
-    company: "University of Costa Rica - R&D Team",
+    role: "Desarrollador Full Stack y Líder Frontend",
+    company: "Universidad de Costa Rica - Equipo de I+D",
     location: "Costa Rica",
-    period: "Jul 2024 - Present",
-    type: "Full-time",
-    description: "Led frontend development and collaborated on backend systems for research projects.",
+    period: "Jul 2024 - Presente",
+    type: "Tiempo completo",
+    description: "Lideré el desarrollo frontend y colaboré en sistemas backend para proyectos de investigación.",
     responsibilities: [
-      "Acted as frontend lead, assigning and tracking tickets, reviewing pull requests",
-      "Designed and developed reusable React components",
-      "Implemented JWT authentication with Axios interceptors",
-      "Developed RESTful APIs using Laravel",
-      "Built and maintained Docker images for development and production",
-      "Refactored Jenkins CI/CD pipelines"
+      "Actué como líder frontend, asignando y rastreando tickets, revisando pull requests",
+      "Diseñé y desarrollé componentes React reutilizables",
+      "Implementé autenticación JWT con interceptores de Axios",
+      "Desarrollé APIs RESTful usando Laravel",
+      "Construí y mantení imágenes Docker para desarrollo y producción",
+      "Refactoricé pipelines CI/CD de Jenkins"
     ],
     technologies: ["React", "Laravel", "Docker", "Jenkins", "PostgreSQL", "JWT"]
   },
   {
     id: 2,
-    role: "Full Stack Developer",
+    role: "Desarrollador Full Stack",
     company: "AyCarta",
-    location: "Remote, Mexico & Costa Rica",
+    location: "Remoto, México y Costa Rica",
     period: "Nov 2024 - Mar 2025",
-    type: "Contract",
-    description: "Led payment system migration and resolved critical production issues.",
+    type: "Contrato",
+    description: "Lideré la migración del sistema de pagos y resolví problemas críticos en producción.",
     responsibilities: [
-      "Led Stripe payment system migration using Django and dj-stripe",
-      "Implemented and maintained Stripe webhooks",
-      "Fixed critical user registration and authentication bugs",
-      "Diagnosed production deployment failures via SSH",
-      "Refactored Dockerfiles for frontend and backend services",
-      "Improved Bitbucket CI/CD pipelines"
+      "Lideré la migración del sistema de pagos Stripe usando Django y dj-stripe",
+      "Implementé y mantení webhooks de Stripe",
+      "Solucioné bugs críticos de registro y autenticación de usuarios",
+      "Diagnostiqué fallos de despliegue en producción vía SSH",
+      "Refactoricé Dockerfiles para servicios frontend y backend",
+      "Mejoré pipelines CI/CD de Bitbucket"
     ],
     technologies: ["Django", "Stripe API", "Docker", "Bitbucket CI/CD", "React", "PostgreSQL"]
   },
   {
     id: 3,
-    role: "Full Stack Developer",
+    role: "Desarrollador Full Stack",
     company: "Marlin",
-    location: "Remote, Costa Rica",
+    location: "Remoto, Costa Rica",
     period: "Jul 2024 - Nov 2024",
-    type: "Contract",
-    description: "Built mobile and web components with focus on user experience.",
+    type: "Contrato",
+    description: "Construí componentes mobile y web con enfoque en la experiencia de usuario.",
     responsibilities: [
-      "Built mobile and web components using React Native and React",
-      "Developed Django REST APIs and database schemas",
-      "Integrated Node.js microservices for testing automation",
-      "Managed cloud deployments and CI/CD pipelines",
-      "Collaborated with designers for consistent UX"
+      "Construí componentes mobile y web usando React Native y React",
+      "Desarrollé APIs REST de Django y esquemas de base de datos",
+      "Integré microservicios Node.js para automatización de pruebas",
+      "Administré despliegues en la nube y pipelines CI/CD",
+      "Colaboré con diseñadores para UX consistente"
     ],
     technologies: ["React Native", "React", "Django", "Node.js", "Tailwind CSS", "AWS"]
   }
@@ -275,10 +275,10 @@ export const certifications = [
 ];
 
 export const education = {
-  degree: "Bachelor's Degree in Informatics and Multimedia Technology",
-  institution: "University of Costa Rica",
-  period: "Mar 2022 - Expected Dec 2025",
-  status: "In Progress"
+  degree: "Licenciatura en Informática y Tecnología Multimedia",
+  institution: "Universidad de Costa Rica",
+  period: "Mar 2022 - Graduación esperada Dic 2025",
+  status: "En progreso"
 };
 
 export const interests = [
