@@ -35,7 +35,7 @@ const ProjectDetail = () => {
   ];
 
   return (
-    <motion.div 
+    <motion.div
       className="project-detail"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -47,7 +47,7 @@ const ProjectDetail = () => {
           <button onClick={handleBackClick} className="btn-back">
             ← Volver
           </button>
-          
+
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -57,10 +57,10 @@ const ProjectDetail = () => {
               <span className="project-category">{project.category}</span>
               <span className="project-year">{project.year}</span>
             </div>
-            
+
             <h1 className="project-title">{project.title}</h1>
             <p className="project-subtitle">{project.description}</p>
-            
+
             <div className="project-quick-info">
               <div className="info-item">
                 <strong>Rol</strong>
@@ -76,26 +76,28 @@ const ProjectDetail = () => {
       </section>
 
       {/* Featured Image */}
-      <motion.section 
-        className="project-featured-image"
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 0.4 }}
-      >
-        <div className="container">
-          <img 
-            src={mockupImages[0]} 
-            alt={`${project.title} - Vista principal`}
-            className="featured-img"
-          />
-        </div>
-      </motion.section>
+      {project.mainImage && (
+        <motion.section
+          className="project-featured-image"
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.4 }}
+        >
+          <div className="container">
+            <img
+              src={project.mainImage}
+              alt={`${project.title} - Vista principal`}
+              className="featured-img"
+            />
+          </div>
+        </motion.section>
+      )}
 
       {/* Problem & Solution */}
       <section className="project-section">
         <div className="container">
           <div className="two-column">
-            <motion.div 
+            <motion.div
               className="column"
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -105,8 +107,8 @@ const ProjectDetail = () => {
               <h2 className="section-subtitle">El Problema</h2>
               <p>{project.problem}</p>
             </motion.div>
-            
-            <motion.div 
+
+            <motion.div
               className="column"
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -124,9 +126,9 @@ const ProjectDetail = () => {
       <section className="project-section project-tech-section">
         <div className="container">
           <h2 className="section-title">Stack Tecnológico</h2>
-          
+
           <div className="tech-categories">
-            <motion.div 
+            <motion.div
               className="tech-category"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -140,8 +142,8 @@ const ProjectDetail = () => {
                 ))}
               </div>
             </motion.div>
-            
-            <motion.div 
+
+            <motion.div
               className="tech-category"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -155,8 +157,8 @@ const ProjectDetail = () => {
                 ))}
               </div>
             </motion.div>
-            
-            <motion.div 
+
+            <motion.div
               className="tech-category"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -175,33 +177,34 @@ const ProjectDetail = () => {
       </section>
 
       {/* Design Showcase */}
-      <section className="project-section project-showcase">
-        <div className="container">
-          <h2 className="section-title">Diseño y Desarrollo</h2>
-          
-          <motion.div 
-            className="showcase-grid"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-          >
-            <div className="showcase-item">
-              <img src={mockupImages[1]} alt="Dashboard mockup" />
-              <p className="showcase-caption">Dashboard y visualización de datos</p>
-            </div>
-            <div className="showcase-item">
-              <img src={mockupImages[2]} alt="Interface mockup" />
-              <p className="showcase-caption">Interfaz de usuario responsive</p>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+      {project.media && (
+        <section className="project-section project-showcase">
+          <div className="container">
+            <h2 className="section-title">Diseño y Desarrollo</h2>
+
+            <motion.div
+              className="showcase-grid"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+            >
+              {project.media.map((mediaItem, index) => (
+                <div key={index} className="showcase-item">
+                  <img src={mediaItem.url} alt={`${project.title} - Vista ${index + 1}`} />
+                  <p className="showcase-caption">{mediaItem.description}</p>
+                </div>
+              ))}
+            </motion.div>
+          </div>
+        </section>
+      )}
+
 
       {/* Responsibilities */}
       <section className="project-section">
         <div className="container">
           <h2 className="section-title">Responsabilidades</h2>
-          <motion.div 
+          <motion.div
             className="responsibilities-grid"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -228,7 +231,7 @@ const ProjectDetail = () => {
       <section className="project-section challenges-section">
         <div className="container">
           <h2 className="section-title">Desafíos y Aprendizajes</h2>
-          <motion.div 
+          <motion.div
             className="challenges-list"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -255,7 +258,7 @@ const ProjectDetail = () => {
       <section className="project-section results-section">
         <div className="container">
           <h2 className="section-title">Resultados e Impacto</h2>
-          <motion.div 
+          <motion.div
             className="results-grid"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}

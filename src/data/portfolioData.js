@@ -200,6 +200,25 @@ export const projects = [
       "Sincronización de estados entre Stripe y base de datos",
       "Testing de webhooks en ambiente de desarrollo"
     ],
+    mainImage: "/projects/ayCarta/landing.png",
+    media: [
+      {
+        description: "Alerta de pago",
+        url: "/projects/ayCarta/payment.png",
+      },
+      {
+        description: "Pago de stripe",
+        url: "/projects/ayCarta/stripe.png",
+      },
+      {
+        description: "Edición de tienda",
+        url: "/projects/ayCarta/store.png",
+      },
+      {
+        description: "Creación de producto",
+        url: "/projects/ayCarta/product.png",
+      },
+    ],
     link: null,
     github: null
   },
@@ -236,6 +255,63 @@ export const projects = [
       "Optimización de bundle size para mobile",
       "Gestión de estados offline-first"
     ],
+    link: null,
+    github: null
+  },
+  {
+    id: 4,
+    title: "PyCon Latam 2026 – Conference Web Platform",
+    category: "Web Platform",
+    thumbnail: "/projects/pycon-latam-2026.jpg",
+    year: "2026",
+    description: "Official website and conference platform for PyCon Latam 2026, providing information about the event, speakers, talks, and community activities.",
+
+    problem: "The conference required a modern, fast, and maintainable web platform capable of presenting event information, managing talks, and providing a smooth user experience for an international audience.",
+
+    solution: "Developed a responsive web platform using React with a component-driven architecture, supporting multilingual content, dynamic talk listings, and an optimized user experience for attendees and organizers.",
+
+    results: [
+      "Responsive platform optimized for desktop and mobile",
+      "Improved navigation and discoverability of talks and speakers",
+      "High performance and fast page load times",
+      "Scalable architecture prepared for high traffic during the conference"
+    ],
+
+    role: "Frontend / Full-Stack Developer",
+
+    methodology: "Agile development with modular component architecture",
+
+    technologies: {
+      frontend: ["React", "Tailwind CSS", "React Query"],
+      backend: ["Django", "Django REST Framework"],
+      devops: ["Docker", "CI/CD"]
+    },
+
+    responsibilities: [
+      "Development of the conference website frontend",
+      "Implementation of reusable UI components",
+      "Integration with backend APIs for talks and event data",
+      "Performance optimization and responsive design",
+      "Collaboration with organizers and design team"
+    ],
+
+    challenges: [
+      "Designing scalable components for dynamic event content",
+      "Supporting multilingual content for the international community",
+      "Ensuring performance and accessibility across devices"
+    ],
+
+    media: [
+      {
+        description: "Screenshot of the PyCon Latam 2026 conference platform homepage, showcasing the event information and navigation.",
+        url: "/projects/pycon-latam-2026-screenshot.jpg",
+      },
+      {
+        description: "Photo of the PyCon Latam 2026 conference platform being used by attendees during the event.",
+        url: "/projects/pycon-latam-2026-attendees.jpg",
+      }
+    ],
+
     link: null,
     github: null
   }
