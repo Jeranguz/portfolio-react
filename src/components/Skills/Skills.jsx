@@ -13,7 +13,7 @@ const Skills = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <span className="section-eyebrow">02</span>
+          <span className="section-eyebrow">04</span>
           <h2 className="section-heading">Skills</h2>
         </motion.div>
 

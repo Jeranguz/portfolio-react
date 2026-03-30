@@ -3,13 +3,13 @@
 export const personalInfo = {
   name: "Jeremy Guzmán",
   fullName: "Jeremy Andrés Guzmán Vargas",
-  role: "Frontend Developer",
+  role: "Full Stack Developer",
   tagline: "Building performant, accessible interfaces — from design handoff to production.",
   location: "Belén, Heredia, Costa Rica",
   email: "Jeremyu4231@gmail.com",
   phone: "+506 6202-5052",
   linkedin: "linkedin.com/in/jeremygzm",
-  bio: `Frontend Developer with 2+ years of experience building performant, accessible, and visually consistent web and mobile interfaces in Agile environments. Proficient in React, Angular, and React Native, with a strong sense of component architecture, design system thinking, and UI/UX best practices. Experienced leading frontend teams, enforcing code quality through pull request reviews, and collaborating closely with designers and backend engineers to deliver cohesive user experiences.`
+  bio: `Full Stack Developer with 2+ years of hands-on experience designing, building, and deploying scalable web applications across the full stack in Agile environments. Proficient in modern frontend frameworks (React, Angular), RESTful API development (Django, Laravel), relational databases, and containerized deployments with Docker. Experienced leading frontend development, collaborating with cross-functional teams, and owning CI/CD pipelines from development to production. Passionate about clean, maintainable code, system reliability, and cloud-native technologies.`
 };
 
 export const skills = {
@@ -17,28 +17,32 @@ export const skills = {
     title: "Technical Skills",
     items: [
       {
+        category: "Languages",
+        skills: ["JavaScript (ES6+)", "Python", "PHP", "SQL", "Bash", "C#"]
+      },
+      {
         category: "Frontend",
-        skills: ["React", "JavaScript ES6+", "HTML5", "CSS3", "Tailwind CSS", "Bootstrap"]
-      },
-      {
-        category: "JavaScript",
-        skills: ["ES6+", "async/await", "Axios", "REST API Integration", "JWT Handling", "State Management"]
-      },
-      {
-        category: "Component Design",
-        skills: ["Design Systems", "Component Libraries", "Prop-driven Architecture", "Responsive Layouts"]
-      },
-      {
-        category: "Tooling",
-        skills: ["Git", "Docker", "CI/CD (Jenkins, Bitbucket, GitHub Actions)", "Postman"]
+        skills: ["React", "Angular", "React Native", "Tailwind CSS", "HTML5", "CSS3", "Bootstrap"]
       },
       {
         category: "Backend",
-        skills: ["Django REST Framework", "Laravel", ".NET", "PostgreSQL", "MySQL"]
+        skills: ["Django", "Django REST Framework", "Laravel", ".NET"]
       },
       {
-        category: "Cloud",
-        skills: ["AWS (EC2, S3, DynamoDB, Lambda, Route 53, CloudFront)", "Azure", "Linux", "SSH", "Bash"]
+        category: "Databases",
+        skills: ["PostgreSQL", "MySQL", "Relational Modeling", "Query Optimization", "Transactions"]
+      },
+      {
+        category: "DevOps & Cloud",
+        skills: ["Docker", "Docker Compose", "AWS (EC2, S3, CloudWatch)", "Azure Fundamentals", "Jenkins", "Bitbucket Pipelines", "Linux/Unix"]
+      },
+      {
+        category: "Architecture & APIs",
+        skills: ["RESTful API Design", "Client–Server Architecture", "JWT Authentication", "Stripe API", "Webhooks"]
+      },
+      {
+        category: "Tools & Practices",
+        skills: ["Git", "Postman", "Axios", "Agile/Scrum", "CI/CD", "SSH", "Log Analysis", "Debugging & Performance Troubleshooting"]
       }
     ]
   },
@@ -72,22 +76,24 @@ export const skills = {
 export const experience = [
   {
     id: 1,
-    role: "Frontend Lead & Full Stack Developer",
+    role: "Full Stack Developer & Frontend Lead",
     company: "University of Costa Rica — R&D Team",
     location: "Costa Rica",
     period: "Jul 2024 – Mar 2026",
     type: "Full-time",
-    description: "Led frontend development across 3 production platforms, managing a 4-person frontend team, enforcing UI and architectural standards through pull request reviews, and delivering a reusable React component library that reduced duplicated UI code by ~30%.",
+    description: "Led frontend development across 3 production platforms for a 4-person team, delivered a reusable React component library cutting duplicated code by ~30%, built RESTful APIs with Laravel for 500+ active users, and owned Docker and Jenkins CI/CD pipelines end-to-end.",
     responsibilities: [
-      "Managed a 4-person frontend team — assigned tickets, tracked delivery, and enforced standards through PR reviews",
-      "Architected and delivered a reusable React component library adopted across all production modules",
-      "Defined component structure, naming conventions, and state management patterns for the full team",
-      "Implemented Axios interceptors for JWT authentication and automatic token refresh",
-      "Collaborated with UI/UX designers to translate wireframes into pixel-accurate responsive interfaces",
-      "Worked with backend engineers to define and integrate RESTful API contracts",
-      "Participated in Scrum ceremonies as the frontend representative for stakeholder-facing decisions"
+      "Led frontend development across 3 production platforms — assigned tickets, reviewed pull requests, and enforced UI/architectural standards for a 4-person team",
+      "Designed and delivered a reusable React component library, reducing duplicated code by ~30% and accelerating feature delivery across modules",
+      "Implemented Axios interceptors for JWT authentication and automatic token refresh, hardening session security and eliminating manual re-login failures",
+      "Developed RESTful APIs for multiple system modules using Laravel, integrating authentication, error handling, and monitoring endpoints for 500+ active users",
+      "Collaborated on relational database design (PostgreSQL/MySQL), ensuring correct data modeling and reliable transactional behavior",
+      "Built and maintained Docker images for frontend and backend environments, ensuring environment parity and reducing \"works on my machine\" incidents",
+      "Refactored Jenkins CI/CD pipelines, cutting build failures and improving deployment stability across staging and production",
+      "Monitored Linux servers and application logs to detect anomalies and resolve incidents proactively before user impact",
+      "Collaborated with designers, backend engineers, and stakeholders in Scrum sprints"
     ],
-    technologies: ["React", "Axios", "JWT", "Laravel", "Docker", "Jenkins", "PostgreSQL"]
+    technologies: ["React", "Laravel", "Axios", "JWT", "Docker", "Jenkins", "PostgreSQL", "MySQL", "Linux"]
   },
   {
     id: 2,
@@ -96,129 +102,39 @@ export const experience = [
     location: "Remote — Mexico & Costa Rica",
     period: "Nov 2024 – Mar 2025",
     type: "Contract",
-    description: "Diagnosed and resolved critical frontend authentication bugs reducing login failures to zero, integrated Stripe payment UI flows, and improved CI/CD pipelines to increase deployment confidence across environments.",
+    description: "Led the payment system migration to Stripe using Django and dj-stripe, resolved critical authentication bugs reducing login failures to zero, and diagnosed production deployment failures that reduced recurring incidents by 35%.",
     responsibilities: [
-      "Resolved critical authentication and user registration bugs, reducing login failures to zero",
-      "Collaborated with backend team to integrate Stripe payment UI flows and webhook-driven subscription updates",
-      "Refactored Dockerfiles for frontend services ensuring consistent builds across dev and production",
-      "Improved Bitbucket CI/CD pipelines for frontend builds, reducing deployment time",
-      "Contributed to cross-functional Agile delivery and sprint reviews"
+      "Led the payment system migration to Stripe using Django and dj-stripe, delivering secure and compliant transaction handling for a SaaS platform",
+      "Implemented and maintained Stripe webhooks to synchronize payment events and subscription state with backend services in real time",
+      "Diagnosed and resolved critical authentication and registration bugs, improving account creation reliability and reducing login failure reports to zero",
+      "Diagnosed production deployment failures via SSH log analysis and container inspection; applied permanent fixes that reduced recurring incidents by 35%",
+      "Refactored Dockerfiles and Docker Compose configurations for frontend and backend services, eliminating build crashes and ensuring environment consistency",
+      "Improved Bitbucket CI/CD pipelines, reducing deployment time and increasing release reliability across staging and production"
     ],
-    technologies: ["React", "Django", "Stripe API", "Docker", "Bitbucket Pipelines", "PostgreSQL"]
+    technologies: ["Django", "dj-stripe", "Stripe API", "Webhooks", "Docker", "Docker Compose", "Bitbucket Pipelines", "PostgreSQL", "SSH"]
   },
   {
     id: 3,
-    role: "Frontend & Full Stack Developer",
+    role: "Full Stack Developer",
     company: "Marlin",
     location: "Remote — Costa Rica",
     period: "Jul 2024 – Nov 2024",
     type: "Contract",
-    description: "Built responsive web and mobile interfaces using React and React Native, established frontend component conventions, and integrated Django REST API contracts for a consumer-facing prototype.",
+    description: "Built responsive web and mobile interfaces using React, React Native, and Tailwind CSS, developed Django REST APIs with 2 database schemas, optimized backend query performance by 20%, and improved CI build times by 10% through pipeline refactoring.",
     responsibilities: [
-      "Built responsive web and mobile UIs using React, React Native, and Tailwind CSS",
-      "Translated design mockups into functional interactive components for a consumer-facing prototype",
-      "Collaborated with backend engineers to define and consume Django REST API contracts",
-      "Established component structure and file organization conventions for the frontend codebase",
-      "Integrated Node.js microservices for internal tooling and test automation"
+      "Built responsive mobile and web interfaces using React Native, React, and Tailwind CSS, improving usability and product presentation for early-stage testing",
+      "Developed Django REST APIs and designed 2 database schemas for product and user management, enabling real-time CRUD operations in testing environments",
+      "Integrated Node.js microservices for internal testing automation, improving development workflow and deployment consistency across QA environments",
+      "Optimized backend query performance by 20% through database query tuning and selective caching strategies",
+      "Improved CI build and validation times by 10% through pipeline refactoring and test parallelization"
     ],
-    technologies: ["React Native", "React", "Tailwind CSS", "Django REST Framework", "Node.js", "AWS"]
+    technologies: ["React Native", "React", "Tailwind CSS", "Django REST Framework", "Node.js", "PostgreSQL", "Docker"]
   }
 ];
 
 export const projects = [
   {
     id: 1,
-    title: "R&D Management System — UCR",
-    category: "Web Application",
-    thumbnail: "/projects/ucr-system.jpg",
-    year: "2024",
-    description: "Multi-module research and development management platform for the University of Costa Rica, built for 3 production teams.",
-    problem: "The university needed a centralized platform to manage R&D projects across multiple teams, with complex role-based access control and interconnected modules.",
-    solution: "Delivered a modular React application with a reusable component library, JWT-based authentication with automatic token refresh, and a scalable frontend architecture adopted across the full team.",
-    results: [
-      "~30% reduction in duplicated UI code through the shared component library",
-      "Eliminated session interruptions with automatic JWT token refresh via Axios interceptors",
-      "Scalable architecture adopted as the standard across all 3 production platforms"
-    ],
-    role: "Frontend Lead & Full Stack Developer",
-    methodology: "Agile (Scrum) · Pull Request Reviews · Component-Driven Development",
-    technologies: {
-      frontend: ["React", "Axios", "React Router", "CSS Modules"],
-      backend: ["Laravel", "PHP", "PostgreSQL"],
-      devops: ["Docker", "Jenkins", "Git"]
-    },
-    responsibilities: [
-      "Led and coordinated a 4-person frontend team across multiple production modules",
-      "Architected the reusable React component library",
-      "Implemented JWT authentication with automatic token refresh",
-      "Defined team-wide component structure and naming conventions",
-      "Collaborated directly with designers and backend engineers"
-    ],
-    challenges: [
-      "Managing complex shared state across a multi-module application",
-      "Implementing reliable automatic token refresh without user disruption",
-      "Ensuring visual consistency across teams and modules without a design system"
-    ],
-    link: null,
-    github: null
-  },
-  {
-    id: 2,
-    title: "Payment System Migration — AyCarta",
-    category: "Payment Integration",
-    thumbnail: "/projects/aycarta-payments.jpg",
-    year: "2024–2025",
-    description: "Full migration of the payment system to Stripe, resolving critical authentication bugs and integrating webhook-driven subscription flows.",
-    problem: "The existing payment system had critical frontend bugs causing login failures and an unstable payment flow that blocked user onboarding.",
-    solution: "Diagnosed and fixed authentication issues, integrated Stripe's UI payment flows with webhook-driven state synchronization, and refactored the CI/CD pipeline for consistent frontend deployments.",
-    results: [
-      "Login failure reports reduced to zero after resolving authentication bugs",
-      "Stripe payment flow successfully integrated with real-time webhook synchronization",
-      "Deployment reliability improved through Bitbucket pipeline refactoring"
-    ],
-    role: "Full Stack Developer",
-    methodology: "Agile · Remote Cross-functional Team",
-    technologies: {
-      frontend: ["React", "TypeScript"],
-      backend: ["Django", "dj-stripe", "PostgreSQL", "Stripe API"],
-      devops: ["Docker", "Bitbucket Pipelines"]
-    },
-    responsibilities: [
-      "Diagnosed and resolved critical authentication and registration bugs",
-      "Integrated Stripe payment UI flows with the frontend state layer",
-      "Coordinated webhook-driven subscription state with the backend team",
-      "Refactored Dockerfiles for consistent frontend build environments",
-      "Improved Bitbucket CI/CD pipelines and participated in sprint reviews"
-    ],
-    challenges: [
-      "Reproducing and fixing intermittent authentication bugs in production",
-      "Synchronizing frontend payment state with webhook-driven backend events",
-      "Testing Stripe webhooks reliably in local and staging environments"
-    ],
-    mainImage: "/projects/ayCarta/landing.png",
-    media: [
-      {
-        description: "Payment alert UI",
-        url: "/projects/ayCarta/payment.png"
-      },
-      {
-        description: "Stripe checkout flow",
-        url: "/projects/ayCarta/stripe.png"
-      },
-      {
-        description: "Store editor",
-        url: "/projects/ayCarta/store.png"
-      },
-      {
-        description: "Product creation",
-        url: "/projects/ayCarta/product.png"
-      }
-    ],
-    link: null,
-    github: null
-  },
-  {
-    id: 3,
     title: "Cross-Platform App — Marlin",
     category: "Mobile & Web",
     thumbnail: "/projects/marlin-app.jpg",
@@ -254,7 +170,7 @@ export const projects = [
     github: null
   },
   {
-    id: 4,
+    id: 2,
     title: "PyCon Latam 2026 — Conference Platform",
     category: "Web Platform",
     thumbnail: "/projects/pycon-latam-2026.jpg",
@@ -287,56 +203,88 @@ export const projects = [
       "Supporting multilingual content cleanly within the component architecture",
       "Ensuring accessibility and performance for a globally distributed audience"
     ],
+    mainImage: "/projects/pylatam2026/main.png",
     media: [
       {
-        description: "PyCon Latam 2026 homepage — talks and navigation overview",
-        url: "/projects/pycon-latam-2026-screenshot.jpg"
+        description: "Register",
+        url: "/projects/pylatam2026/register.png"
       },
       {
-        description: "Conference platform in use during the event",
-        url: "/projects/pycon-latam-2026-attendees.jpg"
+        description: "Call for papers",
+        url: "/projects/pylatam2026/cfp.png"
+      },
+      {
+        description: "User profile",
+        url: "/projects/pylatam2026/profile.png"
+      },
+      {
+        description: "Talk form",
+        url: "/projects/pylatam2026/talk-form.png"
+      },
+      {
+        description: "Sponsors page",
+        url: "/projects/pylatam2026/sponsor.png"
+      },
+      {
+        description: "Lodging information",
+        url: "/projects/pylatam2026/lodging.png"
       }
     ],
     link: null,
     github: null
   },
   {
-  id: 5,
-  title: "Cloud Resume Challenge — AWS",
-  category: "Cloud & DevOps",
-  thumbnail: "/projects/cloud-resume.jpg",
-  year: "2025",
-  description: "End-to-end cloud-native resume site built on AWS, featuring a serverless visitor counter, Infrastructure as Code, and a fully automated CI/CD pipeline.",
-  problem: "Wanted to demonstrate hands-on cloud engineering skills beyond certifications — building, deploying, and maintaining real AWS infrastructure from scratch.",
-  solution: "Architected a static frontend on S3 + CloudFront with a custom domain via Route 53, a serverless backend using Lambda, API Gateway, and DynamoDB for a live visitor counter, and automated all deployments with GitHub Actions using OIDC for keyless authentication and Terraform for infrastructure provisioning.",
-  results: [
-    "Fully deployed personal resume site live at jeremy-guzman.com",
-    "Serverless visitor counter with zero-maintenance backend infrastructure",
-    "Keyless CI/CD pipeline via GitHub Actions OIDC — no long-lived AWS credentials",
-    "100% infrastructure reproducible and version-controlled through Terraform"
-  ],
-  role: "Cloud & DevOps Engineer",
-  methodology: "Infrastructure as Code · GitOps · Serverless Architecture",
-  technologies: {
-    frontend: ["HTML", "CSS", "JavaScript"],
-    backend: ["AWS Lambda", "API Gateway", "DynamoDB"],
-    devops: ["AWS S3", "CloudFront", "Route 53", "Terraform", "GitHub Actions", "OIDC"]
-  },
-  responsibilities: [
-    "Hosted static resume site on S3 with CloudFront CDN and HTTPS",
-    "Configured custom domain and DNS routing via Route 53",
-    "Built a serverless visitor counter with Lambda, API Gateway, and DynamoDB",
-    "Provisioned all AWS infrastructure using Terraform",
-    "Implemented GitHub Actions CI/CD pipeline with OIDC for secure, keyless deployments"
-  ],
-  challenges: [
-    "Configuring OIDC trust between GitHub Actions and AWS IAM without long-lived credentials",
-    "Managing Terraform state and avoiding infrastructure drift across deployments",
-    "Setting up CloudFront cache invalidation as part of the automated deployment flow"
-  ],
-  link: "https://jeremy-guzman.com",
-  github: "https://github.com/Jeranguz"
-}
+    id: 3,
+    title: "Cloud Resume Challenge — AWS",
+    category: "Cloud & DevOps",
+    thumbnail: "/projects/cloud-resume.jpg",
+    year: "2026",
+    description: "End-to-end cloud-native resume site built on AWS, featuring a serverless visitor counter, Infrastructure as Code, and a fully automated CI/CD pipeline.",
+    problem: "Wanted to demonstrate hands-on cloud engineering skills beyond certifications, building, deploying, and maintaining real AWS infrastructure from scratch.",
+    solution: "Architected a static frontend on S3 + CloudFront with a custom domain via Route 53, a serverless backend using Lambda, API Gateway, and DynamoDB for a live visitor counter, and automated all deployments with GitHub Actions using OIDC for keyless authentication and Terraform for infrastructure provisioning.",
+    results: [
+      "Fully deployed personal resume site live at jeremy-guzman.com",
+      "Serverless visitor counter with zero-maintenance backend infrastructure",
+      "Keyless CI/CD pipeline via GitHub Actions OIDC — no long-lived AWS credentials",
+      "100% infrastructure reproducible and version-controlled through Terraform"
+    ],
+    role: "Cloud & DevOps Engineer",
+    methodology: "Infrastructure as Code · GitOps · Serverless Architecture",
+    technologies: {
+      frontend: ["HTML", "CSS", "JavaScript"],
+      backend: ["AWS Lambda", "API Gateway", "DynamoDB"],
+      devops: ["AWS S3", "CloudFront", "Route 53", "Terraform", "GitHub Actions", "OIDC"]
+    },
+    responsibilities: [
+      "Hosted static resume site on S3 with CloudFront CDN and HTTPS",
+      "Configured custom domain and DNS routing via Route 53",
+      "Built a serverless visitor counter with Lambda, API Gateway, and DynamoDB",
+      "Provisioned all AWS infrastructure using Terraform",
+      "Implemented GitHub Actions CI/CD pipeline with OIDC for secure, keyless deployments"
+    ],
+    challenges: [
+      "Configuring OIDC trust between GitHub Actions and AWS IAM without long-lived credentials",
+      "Managing Terraform state and avoiding infrastructure drift across deployments",
+      "Setting up CloudFront cache invalidation as part of the automated deployment flow"
+    ],
+    mainImage: "/projects/cloud-resume/resume-ui.png",
+    media: [
+      {
+        description: "Lambda function in action with API Gateway integration",
+        url: "/projects/cloud-resume/lambda-function.png"
+      },
+      {
+        description: "Resume architectural diagram — AWS services and interactions",
+        url: "/projects/cloud-resume/architecture.jpg"
+      },
+      {
+        description: "GitHub Actions workflows",
+        url: "/projects/cloud-resume/workflows.png"
+      }
+    ],
+    link: "https://jeremy-guzman.com",
+    github: "https://github.com/Jeranguz"
+  }
 ];
 
 export const certifications = [
@@ -357,6 +305,6 @@ export const education = {
 
 export const socialLinks = [
   { name: "LinkedIn", url: "https://linkedin.com/in/jeremygzm", icon: "linkedin" },
-  { name: "GitHub",   url: "https://github.com/Jeranguz",         icon: "github"   },
-  { name: "Email",    url: "mailto:Jeremyu4231@gmail.com",         icon: "email"    }
+  { name: "GitHub", url: "https://github.com/Jeranguz", icon: "github" },
+  { name: "Email", url: "mailto:Jeremyu4231@gmail.com", icon: "email" }
 ];
