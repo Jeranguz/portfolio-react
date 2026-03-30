@@ -27,6 +27,7 @@
   border-radius: 50%;
   filter: blur(60px);
   pointer-events: none;
+  z-index: 0;
 }
 
 .btn-back {
@@ -138,6 +139,55 @@
   color: var(--c-text-2);
   margin: 0;
   line-height: 1.6;
+}
+
+/* ── Project links ────────────────────────────────────────── */
+.project-links {
+  display: flex;
+  gap: var(--sp-3);
+  flex-wrap: wrap;
+  margin-top: var(--sp-8);
+  position: relative;
+  z-index: 1;
+}
+
+.btn-project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-family: var(--font-ui);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: var(--sp-3) var(--sp-5);
+  border: 1px solid var(--c-border-2);
+  color: var(--c-text-2);
+  background: var(--glass-bg);
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+  transition: border-color var(--t-base) var(--ease),
+              color var(--t-base) var(--ease),
+              box-shadow var(--t-base) var(--ease);
+}
+
+.btn-project-link:hover {
+  border-color: var(--c-accent);
+  color: var(--c-text);
+  box-shadow: 0 0 16px var(--c-accent-glow);
+}
+
+.btn-project-link.primary {
+  background: var(--aurora);
+  border-color: transparent;
+  color: #fff;
+  box-shadow: 0 0 20px var(--c-accent-glow);
+}
+
+.btn-project-link.primary:hover {
+  opacity: 0.88;
+  box-shadow: 0 0 32px var(--c-accent-glow);
 }
 
 /* ── Featured image ───────────────────────────────────────── */
@@ -490,4 +540,5 @@
 @media (max-width: 480px) {
   .project-hero,
   .project-section { padding: var(--sp-12) 0; }
+  .btn-back {margin-top: 2rem;}
 }

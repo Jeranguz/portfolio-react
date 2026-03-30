@@ -21,18 +21,11 @@ const ProjectDetail = () => {
   if (!project) {
     return (
       <div className="project-not-found">
-        <h2>Proyecto no encontrado</h2>
-        <button onClick={handleBackClick} className="btn-back">Volver al inicio</button>
+        <h2>Project not found</h2>
+        <button onClick={handleBackClick} className="btn-back">Back to home</button>
       </div>
     );
   }
-
-  // Imágenes de stock para mockups de diseño
-  const mockupImages = [
-    'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80',
-    'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80',
-    'https://images.unsplash.com/photo-1551650975-87deedd944c3?w=1200&q=80'
-  ];
 
   return (
     <motion.div
@@ -45,7 +38,7 @@ const ProjectDetail = () => {
       <section className="project-hero">
         <div className="container">
           <button onClick={handleBackClick} className="btn-back">
-            ← Volver
+            ← Back
           </button>
 
           <motion.div
@@ -63,14 +56,39 @@ const ProjectDetail = () => {
 
             <div className="project-quick-info">
               <div className="info-item">
-                <strong>Rol</strong>
+                <strong>Role</strong>
                 <p>{project.role}</p>
               </div>
               <div className="info-item">
-                <strong>Metodología</strong>
+                <strong>Methodology</strong>
                 <p>{project.methodology}</p>
               </div>
             </div>
+
+            {(project.link || project.github) && (
+              <div className="project-links">
+                {project.link && (
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-project-link primary"
+                  >
+                    Live Site ↗
+                  </a>
+                )}
+                {project.github && (
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-project-link"
+                  >
+                    GitHub ↗
+                  </a>
+                )}
+              </div>
+            )}
           </motion.div>
         </div>
       </section>
@@ -198,7 +216,6 @@ const ProjectDetail = () => {
           </div>
         </section>
       )}
-
 
       {/* Responsibilities */}
       <section className="project-section">

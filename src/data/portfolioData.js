@@ -230,7 +230,7 @@ export const projects = [
         url: "/projects/pylatam2026/lodging.png"
       }
     ],
-    link: null,
+    link: "https://pylatam.org/",
     github: null
   },
   {
