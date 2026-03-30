@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import { FiSun, FiMoon, FiMenu, FiX } from 'react-icons/fi';
 import './Navigation.css';
 
 const Navigation = ({ theme, toggleTheme }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,20 +27,25 @@ const Navigation = ({ theme, toggleTheme }) => {
     { name: 'Contact', href: '#contact' }
   ];
 
-  const handleNavClick = (e, href) => {
-    e.preventDefault();
-    setIsOpen(false);
-    
+  const scrollToSection = (href) => {
     const element = document.querySelector(href);
     if (element) {
       const offset = 80;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - offset;
+      const offsetPosition = element.getBoundingClientRect().top + window.pageYOffset - offset;
+      window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+    }
+  };
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
+  const handleNavClick = (e, href) => {
+    e.preventDefault();
+    setIsOpen(false);
+
+    const element = document.querySelector(href);
+    if (element) {
+      scrollToSection(href);
+    } else {
+      navigate('/');
+      setTimeout(() => scrollToSection(href), 100);
     }
   };
 

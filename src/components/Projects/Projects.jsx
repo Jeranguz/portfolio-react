@@ -58,10 +58,13 @@ const Projects = () => {
 
               <div className="project-foot">
                 <div className="project-tech-row">
-                  {project.technologies.frontend.slice(0, 3).map(tech => (
+                  {project.technologies.frontend &&project.technologies.frontend.slice(0, 3).map(tech => (
                     <span key={tech} className="tech-chip">{tech}</span>
                   ))}
-                  {project.technologies.backend.slice(0, 2).map(tech => (
+                  {project.technologies.backend && project.technologies.backend.slice(0, 2).map(tech => (
+                    <span key={tech} className="tech-chip">{tech}</span>
+                  ))}
+                  {project.technologies.devops && project.technologies.devops.slice(0, 2).map(tech => (
                     <span key={tech} className="tech-chip">{tech}</span>
                   ))}
                 </div>
