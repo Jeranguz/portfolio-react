@@ -1,53 +1,72 @@
 import { motion } from 'framer-motion';
 import { personalInfo, socialLinks } from '../../data/portfolioData';
-import { FiMail, FiPhone, FiMapPin } from 'react-icons/fi';
+import { FiMapPin } from 'react-icons/fi';
 import './Contact.css';
 
 const Contact = () => {
   return (
     <section id="contact" className="contact section">
       <div className="container">
-        <h2 className="section-title">Contacto</h2>
-        
-        <div className="contact-content">
+        <motion.div
+          className="section-header"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <span className="section-eyebrow">05</span>
+          <h2 className="section-heading">Contacto</h2>
+        </motion.div>
+
+        <div className="contact-layout">
           <motion.div
-            className="contact-info"
-            initial={{ opacity: 0, x: -50 }}
+            className="contact-left"
+            initial={{ opacity: 0, x: -24 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.1 }}
           >
-            <h3>Hablemos</h3>
-            <p>¿Tienes un proyecto en mente? Me encantaría escucharlo.</p>
-            
-            <div className="contact-details">
-              <div className="contact-item">
-                <FiMail className="contact-icon" />
-                <a href={`mailto:${personalInfo.email}`}>{personalInfo.email}</a>
-              </div>
-              
-              <div className="contact-item">
-                <FiPhone className="contact-icon" />
-                <a href={`tel:${personalInfo.phone}`}>{personalInfo.phone}</a>
-              </div>
-              
-              <div className="contact-item">
-                <FiMapPin className="contact-icon" />
-                <span>{personalInfo.location}</span>
-              </div>
-            </div>
-            
-            <div className="contact-social">
+            <h3 className="contact-headline">
+              ¿Tienes algo<br />en mente?
+            </h3>
+            <p className="contact-sub">
+              Disponible para proyectos freelance, posiciones full-time y colaboraciones creativas.
+            </p>
+          </motion.div>
+
+          <motion.div
+            className="contact-right"
+            initial={{ opacity: 0, x: 24 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+          >
+            <a
+              href={`mailto:${personalInfo.email}`}
+              className="contact-email"
+              aria-label={`Enviar correo a ${personalInfo.email}`}
+            >
+              {personalInfo.email}
+            </a>
+
+            <div className="contact-links">
               {socialLinks.map(link => (
                 <a
                   key={link.name}
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="social-button"
+                  className="contact-social-item"
                 >
                   {link.name}
+                  <span aria-hidden="true"> ↗</span>
                 </a>
               ))}
+            </div>
+
+            <div className="contact-location">
+              <FiMapPin aria-hidden="true" />
+              <span>{personalInfo.location}</span>
             </div>
           </motion.div>
         </div>

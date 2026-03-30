@@ -6,28 +6,46 @@ const Experience = () => {
   return (
     <section id="experience" className="experience section">
       <div className="container">
-        <h2 className="section-title">Experiencia</h2>
-        
-        <div className="timeline">
+        <motion.div
+          className="section-header"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <span className="section-eyebrow">03</span>
+          <h2 className="section-heading">Experiencia</h2>
+        </motion.div>
+
+        <div className="exp-list">
           {experience.map((exp, index) => (
             <motion.div
               key={exp.id}
-              className="timeline-item"
-              initial={{ opacity: 0, y: 30 }}
+              className="exp-item"
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.2 }}
+              transition={{ delay: index * 0.15, duration: 0.6 }}
             >
-              <div className="timeline-content">
-                <span className="timeline-badge">{exp.type}</span>
-                <h3>{exp.role}</h3>
-                <h4>{exp.company}</h4>
-                <p className="timeline-period">{exp.period}</p>
-                <p className="timeline-description">{exp.description}</p>
-                
-                <div className="timeline-tech">
+              <div className="exp-index" aria-hidden="true">
+                0{index + 1}
+              </div>
+
+              <div className="exp-main">
+                <div className="exp-top">
+                  <div className="exp-company-block">
+                    <h3 className="exp-company">{exp.company}</h3>
+                    <span className="exp-type-badge">{exp.type}</span>
+                  </div>
+                  <time className="exp-period">{exp.period}</time>
+                </div>
+
+                <h4 className="exp-role">{exp.role}</h4>
+                <p className="exp-desc">{exp.description}</p>
+
+                <div className="exp-tech">
                   {exp.technologies.map(tech => (
-                    <span key={tech} className="tech-badge">{tech}</span>
+                    <span key={tech} className="tech-chip">{tech}</span>
                   ))}
                 </div>
               </div>

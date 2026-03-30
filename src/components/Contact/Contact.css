@@ -1,70 +1,144 @@
+/* ── Contact ─────────────────────────────────────────────────── */
+
 .contact {
-  background-color: var(--color-bg-secondary);
+  background-color: var(--c-surface);
+  position: relative;
+  overflow: hidden;
 }
 
-.contact-content {
-  max-width: 800px;
-  margin: 0 auto;
+/* Ambient accent glow */
+.contact::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  right: -10%;
+  width: 50%;
+  height: 70%;
+  background: radial-gradient(ellipse, var(--c-accent-glow) 0%, transparent 65%);
+  pointer-events: none;
+  z-index: 0;
 }
 
-.contact-info h3 {
-  font-size: var(--font-size-3xl);
-  margin-bottom: var(--spacing-md);
-  color: var(--color-accent);
+.contact .container {
+  position: relative;
+  z-index: 1;
 }
 
-.contact-info > p {
-  font-size: var(--font-size-lg);
-  color: var(--color-text-secondary);
-  margin-bottom: var(--spacing-2xl);
+/* ── Layout ───────────────────────────────────────────────── */
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-16);
+  align-items: start;
 }
 
-.contact-details {
+/* ── Left ─────────────────────────────────────────────────── */
+.contact-left {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-lg);
-  margin-bottom: var(--spacing-2xl);
+  gap: var(--sp-6);
 }
 
-.contact-item {
+.contact-headline {
+  font-family: var(--font-display);
+  font-size: clamp(var(--fs-3xl), 6vw, var(--fs-5xl));
+  font-weight: 300;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--c-text);
+}
+
+.contact-sub {
+  font-family: var(--font-body);
+  font-size: var(--fs-md);
+  font-style: italic;
+  line-height: 1.75;
+  color: var(--c-text-2);
+  max-width: 38ch;
+  margin: 0;
+}
+
+/* ── Right ────────────────────────────────────────────────── */
+.contact-right {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-8);
+  padding-top: var(--sp-2);
+}
+
+.contact-email {
+  font-family: var(--font-display);
+  font-size: clamp(var(--fs-lg), 2.5vw, var(--fs-2xl));
+  font-weight: 400;
+  color: var(--c-accent);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  border-bottom: 1px solid var(--c-accent-sub);
+  padding-bottom: var(--sp-2);
+  transition: color var(--t-base) var(--ease),
+              border-color var(--t-base) var(--ease);
+  display: block;
+  word-break: break-all;
+}
+
+.contact-email:hover {
+  color: var(--c-accent-dim);
+  border-bottom-color: var(--c-accent-dim);
+}
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.contact-social-item {
+  font-family: var(--font-ui);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--c-text-2);
+  text-decoration: none;
   display: flex;
   align-items: center;
-  gap: var(--spacing-md);
-  font-size: var(--font-size-lg);
+  gap: var(--sp-1);
+  padding: var(--sp-3) 0;
+  border-bottom: 1px solid var(--c-border);
+  transition: color var(--t-base) var(--ease),
+              padding-left var(--t-base) var(--ease);
+  cursor: pointer;
 }
 
-.contact-icon {
-  font-size: var(--font-size-2xl);
-  color: var(--color-accent);
+.contact-social-item:hover {
+  color: var(--c-accent);
+  padding-left: var(--sp-3);
 }
 
-.contact-item a {
-  color: var(--color-text-primary);
-  transition: color var(--transition-fast);
-}
-
-.contact-item a:hover {
-  color: var(--color-accent);
-}
-
-.contact-social {
+.contact-location {
   display: flex;
-  gap: var(--spacing-md);
-  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-2);
+  color: var(--c-text-3);
 }
 
-.social-button {
-  padding: var(--spacing-md) var(--spacing-xl);
-  background-color: var(--color-accent);
-  color: var(--color-white);
-  border-radius: var(--radius-lg);
-  font-weight: var(--font-weight-semibold);
-  transition: all var(--transition-fast);
+.contact-location svg {
+  flex-shrink: 0;
+  color: var(--c-accent);
+  opacity: 0.7;
 }
 
-.social-button:hover {
-  background-color: var(--color-accent-hover);
-  color: var(--color-white);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+.contact-location span {
+  font-family: var(--font-ui);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* ── Responsive ───────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .contact-layout {
+    grid-template-columns: 1fr;
+    gap: var(--sp-10);
+  }
 }

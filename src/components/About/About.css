@@ -1,90 +1,148 @@
+/* ── About ──────────────────────────────────────────────────── */
+
 .about {
-  background-color: var(--color-bg-secondary);
+  background-color: var(--c-surface);
 }
 
-.section-title {
-  text-align: center;
-  margin-bottom: var(--spacing-3xl);
-  color: var(--color-text-primary);
+/* ── Body: image + text ───────────────────────────────────── */
+.about-body {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: var(--sp-12);
+  align-items: start;
+  margin-bottom: var(--sp-12);
+}
+
+/* ── Image ────────────────────────────────────────────────── */
+.about-image-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.about-image-frame {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background-color: var(--c-surface-2);
+  border: 1px solid var(--c-border);
   position: relative;
 }
 
-.section-title::after {
+.about-image-frame::after {
   content: '';
   position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 4px;
-  background-color: var(--color-accent);
-  border-radius: var(--radius-full);
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 60%, rgba(12, 12, 14, 0.4));
 }
 
-.about-content {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 350px 1fr;
-  gap: var(--spacing-3xl);
-  align-items: center;
-}
-
-.about-image {
+.about-image-frame img {
   width: 100%;
-  max-width: 350px;
-  margin: 0 auto;
-}
-
-.about-image img {
-  width: 100%;
-  height: auto;
-  border-radius: var(--radius-2xl);
-  box-shadow: var(--shadow-2xl);
+  height: 100%;
   object-fit: cover;
+  object-position: top;
+  filter: grayscale(20%);
+  transition: filter var(--t-slow) var(--ease), transform var(--t-slow) var(--ease);
 }
 
+.about-image-frame:hover img {
+  filter: grayscale(0%);
+  transform: scale(1.03);
+}
+
+.about-image-caption {
+  font-family: var(--font-ui);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--c-text-3);
+}
+
+/* ── Bio ──────────────────────────────────────────────────── */
 .about-text {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-xl);
+  padding-top: var(--sp-2);
 }
 
 .about-bio {
-  font-size: var(--font-size-lg);
-  line-height: var(--line-height-relaxed);
-  color: var(--color-text-secondary);
-  margin-bottom: var(--spacing-md);
+  font-family: var(--font-body);
+  font-size: var(--fs-lg);
+  line-height: 1.8;
+  color: var(--c-text-2);
+  margin: 0;
 }
 
-.about-education h3 {
-  font-size: var(--font-size-2xl);
-  margin-bottom: var(--spacing-lg);
-  color: var(--color-accent);
+/* ── Education strip ──────────────────────────────────────── */
+.about-education {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: var(--sp-6);
+  align-items: start;
+  padding-top: var(--sp-8);
+  border-top: 1px solid var(--c-border);
 }
 
-.education-item h4 {
-  font-size: var(--font-size-xl);
-  margin-bottom: var(--spacing-sm);
+.edu-label {
+  font-family: var(--font-ui);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--c-text-3);
+  padding-top: var(--sp-1);
 }
 
-.education-institution {
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-text-secondary);
+.edu-body {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2) var(--sp-8);
+  align-items: baseline;
 }
 
-.education-period {
-  color: var(--color-text-tertiary);
-  font-size: var(--font-size-sm);
+.edu-degree {
+  font-family: var(--font-display);
+  font-size: var(--fs-xl);
+  font-weight: 400;
+  color: var(--c-text);
+  line-height: 1.2;
 }
 
+.edu-institution {
+  font-family: var(--font-ui);
+  font-size: var(--fs-sm);
+  letter-spacing: 0.06em;
+  color: var(--c-accent);
+  font-weight: 500;
+}
+
+.edu-period {
+  font-family: var(--font-ui);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.1em;
+  color: var(--c-text-3);
+  margin-left: auto;
+}
+
+/* ── Responsive ───────────────────────────────────────────── */
 @media (max-width: 768px) {
-  .about-content {
+  .about-body {
     grid-template-columns: 1fr;
-    gap: var(--spacing-2xl);
+    gap: var(--sp-8);
   }
-  
-  .about-image {
-    max-width: 280px;
+
+  .about-image-wrap {
+    max-width: 220px;
+  }
+
+  .about-bio {
+    font-size: var(--fs-md);
+  }
+
+  .about-education {
+    grid-template-columns: 1fr;
+    gap: var(--sp-3);
+  }
+
+  .edu-period {
+    margin-left: 0;
   }
 }

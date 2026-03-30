@@ -11,56 +11,65 @@ const Projects = () => {
     window.scrollTo(0, 0);
   };
 
+  const total = String(projects.length).padStart(2, '0');
+
   return (
     <section id="projects" className="projects section">
       <div className="container">
-        <h2 className="section-title">Proyectos</h2>
-        
-        <div className="projects-grid">
+        <motion.div
+          className="section-header"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <span className="section-eyebrow">04</span>
+          <h2 className="section-heading">Proyectos</h2>
+        </motion.div>
+
+        <div className="projects-list">
           {projects.map((project, index) => (
-            <motion.div
+            <motion.article
               key={project.id}
-              className="project-card"
-              initial={{ opacity: 0, y: 50 }}
+              className="project-item"
+              initial={{ opacity: 0, y: 32 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.2 }}
-              whileHover={{ y: -10, transition: { duration: 0.1 } }}
+              transition={{ delay: index * 0.12, duration: 0.6 }}
               onClick={() => handleProjectClick(project.id)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={e => e.key === 'Enter' && handleProjectClick(project.id)}
+              aria-label={`Ver proyecto: ${project.title}`}
             >
-              <div className="project-header">
-                <span className="project-category">{project.category}</span>
-                <span className="project-year">{project.year}</span>
-              </div>
-              
-              <h3>{project.title}</h3>
-              <p className="project-description">{project.description}</p>
-              
-              <div className="project-role">
-                <strong>Rol:</strong> {project.role}
-              </div>
-              
-              <div className="project-tech">
-                <strong>Tecnologías:</strong>
-                <div className="tech-stack">
-                  {project.technologies.frontend.slice(0, 3).map(tech => (
-                    <span key={tech} className="tech-badge">{tech}</span>
-                  ))}
-                  {project.technologies.backend.slice(0, 2).map(tech => (
-                    <span key={tech} className="tech-badge">{tech}</span>
-                  ))}
+              <div className="project-item-top">
+                <div className="project-num" aria-hidden="true">
+                  {String(index + 1).padStart(2, '0')}
+                  <span>/{total}</span>
+                </div>
+                <div className="project-meta-row">
+                  <span className="project-cat">{project.category}</span>
+                  <span className="project-yr">{project.year}</span>
                 </div>
               </div>
-              
-              <div className="project-results">
-                <strong>Resultados:</strong>
-                <ul>
-                  {project.results.slice(0, 2).map((result, i) => (
-                    <li key={i}>{result}</li>
+
+              <h3 className="project-title">{project.title}</h3>
+              <p className="project-desc">{project.description}</p>
+
+              <div className="project-foot">
+                <div className="project-tech-row">
+                  {project.technologies.frontend.slice(0, 3).map(tech => (
+                    <span key={tech} className="tech-chip">{tech}</span>
                   ))}
-                </ul>
+                  {project.technologies.backend.slice(0, 2).map(tech => (
+                    <span key={tech} className="tech-chip">{tech}</span>
+                  ))}
+                </div>
+                <div className="project-cta" aria-hidden="true">
+                  Ver caso <span>→</span>
+                </div>
               </div>
-            </motion.div>
+            </motion.article>
           ))}
         </div>
       </div>

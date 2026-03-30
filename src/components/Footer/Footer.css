@@ -1,21 +1,30 @@
+/* ── Footer ─────────────────────────────────────────────────── */
+
 .footer {
-  background-color: var(--color-primary-dark);
-  color: var(--color-white);
-  padding: var(--spacing-2xl) 0;
-  text-align: center;
+  background-color: var(--c-bg);
+  border-top: 1px solid var(--c-border);
+  padding: var(--sp-8) 0;
 }
 
 .footer-content {
   display: flex;
-  flex-direction: column;
-  gap: var(--spacing-sm);
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  flex-wrap: wrap;
 }
 
 .footer-content p {
-  color: var(--color-gray-300);
+  font-family: var(--font-ui);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--c-text-3);
   margin: 0;
 }
 
-.footer-tagline {
-  font-size: var(--font-size-sm);
+@media (max-width: 480px) {
+  .footer-content {
+    justify-content: center;
+  }
 }
