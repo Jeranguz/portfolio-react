@@ -86,7 +86,7 @@ const ProjectDetail = () => {
           <div className="container">
             <img
               src={project.mainImage}
-              alt={`${project.title} - Vista principal`}
+              alt={`${project.title} — main view`}
               className="featured-img"
             />
           </div>
@@ -104,7 +104,7 @@ const ProjectDetail = () => {
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
             >
-              <h2 className="section-subtitle">El Problema</h2>
+              <h2 className="section-subtitle">The Problem</h2>
               <p>{project.problem}</p>
             </motion.div>
 
@@ -115,7 +115,7 @@ const ProjectDetail = () => {
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
             >
-              <h2 className="section-subtitle">La Solución</h2>
+              <h2 className="section-subtitle">The Solution</h2>
               <p>{project.solution}</p>
             </motion.div>
           </div>
@@ -125,7 +125,7 @@ const ProjectDetail = () => {
       {/* Tech Stack */}
       <section className="project-section project-tech-section">
         <div className="container">
-          <h2 className="section-title">Stack Tecnológico</h2>
+          <h2 className="section-title">Tech Stack</h2>
 
           <div className="tech-categories">
             <motion.div
@@ -180,7 +180,7 @@ const ProjectDetail = () => {
       {project.media && (
         <section className="project-section project-showcase">
           <div className="container">
-            <h2 className="section-title">Diseño y Desarrollo</h2>
+            <h2 className="section-title">Design & Development</h2>
 
             <motion.div
               className="showcase-grid"
@@ -190,7 +190,7 @@ const ProjectDetail = () => {
             >
               {project.media.map((mediaItem, index) => (
                 <div key={index} className="showcase-item">
-                  <img src={mediaItem.url} alt={`${project.title} - Vista ${index + 1}`} />
+                  <img src={mediaItem.url} alt={`${project.title} — view ${index + 1}`} />
                   <p className="showcase-caption">{mediaItem.description}</p>
                 </div>
               ))}
@@ -203,7 +203,7 @@ const ProjectDetail = () => {
       {/* Responsibilities */}
       <section className="project-section">
         <div className="container">
-          <h2 className="section-title">Responsabilidades</h2>
+          <h2 className="section-title">Responsibilities</h2>
           <motion.div
             className="responsibilities-grid"
             initial={{ opacity: 0 }}
@@ -230,7 +230,7 @@ const ProjectDetail = () => {
       {/* Challenges */}
       <section className="project-section challenges-section">
         <div className="container">
-          <h2 className="section-title">Desafíos y Aprendizajes</h2>
+          <h2 className="section-title">Challenges & Learnings</h2>
           <motion.div
             className="challenges-list"
             initial={{ opacity: 0 }}
@@ -257,7 +257,7 @@ const ProjectDetail = () => {
       {/* Results */}
       <section className="project-section results-section">
         <div className="container">
-          <h2 className="section-title">Resultados e Impacto</h2>
+          <h2 className="section-title">Results & Impact</h2>
           <motion.div
             className="results-grid"
             initial={{ opacity: 0 }}
@@ -285,7 +285,7 @@ const ProjectDetail = () => {
       <section className="project-navigation">
         <div className="container">
           <button onClick={handleBackClick} className="btn-rounded">
-            Ver más proyectos
+            View more projects
           </button>
         </div>
       </section>

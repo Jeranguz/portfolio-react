@@ -14,7 +14,7 @@ const About = () => {
           transition={{ duration: 0.6 }}
         >
           <span className="section-eyebrow">01</span>
-          <h2 className="section-heading">Sobre Mí</h2>
+          <h2 className="section-heading">About</h2>
         </motion.div>
 
         <div className="about-body">
@@ -28,7 +28,7 @@ const About = () => {
             <div className="about-image-frame">
               <img src="/profile.png" alt="Jeremy Andrés Guzmán Vargas" />
             </div>
-            <p className="about-image-caption">Jeremy Guzmán, 2024</p>
+            <p className="about-image-caption">Jeremy Guzmán — 2024</p>
           </motion.div>
 
           <motion.div
@@ -49,7 +49,7 @@ const About = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.3 }}
         >
-          <div className="edu-label">Formación</div>
+          <div className="edu-label">Education</div>
           <div className="edu-body">
             <div className="edu-degree">{education.degree}</div>
             <div className="edu-institution">{education.institution}</div>

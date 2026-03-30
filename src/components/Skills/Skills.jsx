@@ -14,7 +14,7 @@ const Skills = () => {
           transition={{ duration: 0.6 }}
         >
           <span className="section-eyebrow">02</span>
-          <h2 className="section-heading">Habilidades</h2>
+          <h2 className="section-heading">Skills</h2>
         </motion.div>
 
         <div className="skills-technical">

@@ -14,7 +14,7 @@ const Experience = () => {
           transition={{ duration: 0.6 }}
         >
           <span className="section-eyebrow">03</span>
-          <h2 className="section-heading">Experiencia</h2>
+          <h2 className="section-heading">Experience</h2>
         </motion.div>
 
         <div className="exp-list">

@@ -24,7 +24,7 @@ const Projects = () => {
           transition={{ duration: 0.6 }}
         >
           <span className="section-eyebrow">04</span>
-          <h2 className="section-heading">Proyectos</h2>
+          <h2 className="section-heading">Projects</h2>
         </motion.div>
 
         <div className="projects-list">
@@ -40,7 +40,7 @@ const Projects = () => {
               role="button"
               tabIndex={0}
               onKeyDown={e => e.key === 'Enter' && handleProjectClick(project.id)}
-              aria-label={`Ver proyecto: ${project.title}`}
+              aria-label={`View project: ${project.title}`}
             >
               <div className="project-item-top">
                 <div className="project-num" aria-hidden="true">
@@ -66,7 +66,7 @@ const Projects = () => {
                   ))}
                 </div>
                 <div className="project-cta" aria-hidden="true">
-                  Ver caso <span>→</span>
+                  View case <span>→</span>
                 </div>
               </div>
             </motion.article>

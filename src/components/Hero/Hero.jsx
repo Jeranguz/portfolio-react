@@ -5,18 +5,18 @@ import './Hero.css';
 
 const Hero = () => {
   const getIcon = (iconName) => {
-    const icons = {
-      linkedin: FaLinkedin,
-      github: FaGithub,
-      email: FaEnvelope
-    };
+    const icons = { linkedin: FaLinkedin, github: FaGithub, email: FaEnvelope };
     const Icon = icons[iconName];
     return Icon ? <Icon /> : null;
   };
 
   return (
     <section id="home" className="hero" role="banner">
-      <div className="hero-noise" aria-hidden="true" />
+      {/* Space background elements */}
+      <div className="hero-stars" aria-hidden="true" />
+      <div className="hero-orb hero-orb-1" aria-hidden="true" />
+      <div className="hero-orb hero-orb-2" aria-hidden="true" />
+      <div className="hero-orb hero-orb-3" aria-hidden="true" />
 
       <div className="hero-inner">
         {/* Top meta strip */}
@@ -62,10 +62,10 @@ const Hero = () => {
             transition={{ delay: 0.65, duration: 0.6 }}
           >
             <a href="#projects" className="btn-hero-primary">
-              Ver proyectos <span aria-hidden="true">→</span>
+              View Projects <span aria-hidden="true">→</span>
             </a>
             <a href="#contact" className="btn-hero-ghost">
-              Hablemos
+              Let's Talk
             </a>
           </motion.div>
         </div>
@@ -85,11 +85,11 @@ const Hero = () => {
               rel="noopener noreferrer"
               aria-label={link.name}
               className="hero-social-link"
-              whileHover={{ y: -3 }}
+              whileHover={{ y: -3, scale: 1.1 }}
               transition={{ duration: 0.15 }}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              style={{ transitionDelay: `${0.9 + index * 0.08}s` }}
+              // style={{ transitionDelay: `${0.9 + index * 0.08}s` }}
             >
               {getIcon(link.icon)}
             </motion.a>

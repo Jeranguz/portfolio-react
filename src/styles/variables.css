@@ -1,27 +1,42 @@
 /* ============================================================
-   Design System — Warm Editorial Dark
-   Aesthetic: Kinfolk magazine meets developer portfolio
+   Design System — Space / Cosmic
+   Palette: deep navy · aurora violet/pink · frosted glass
    Fonts: Cormorant Garamond (display) · Archivo (UI) · Lora (body)
    ============================================================ */
 
 :root {
-  /* ── Background & Surface ─────────────────────────────────── */
-  --c-bg:        #0C0C0E;   /* warm near-black */
-  --c-surface:   #141416;
-  --c-surface-2: #1C1C1F;
-  --c-border:    #252528;
-  --c-border-2:  #333337;
+  /* ── Space backgrounds ────────────────────────────────────── */
+  --c-bg:        #03042C;   /* deep space */
+  --c-surface:   #070B3B;   /* dark navy card */
+  --c-surface-2: #0A1051;   /* elevated navy */
+  --c-border:    rgba(139, 111, 239, 0.28);
+  --c-border-2:  rgba(176, 160, 255, 0.42);
 
   /* ── Text ────────────────────────────────────────────────── */
-  --c-text:      #F0EAD6;   /* warm cream */
-  --c-text-2:    #8A8272;   /* muted warm */
-  --c-text-3:    #5C5650;   /* subtle */
+  --c-text:      #F0EEFF;   /* near-white lavender — high contrast */
+  --c-text-2:    #B0A8DC;   /* muted violet — lifted for readability (6.2:1 on --c-bg) */
+  --c-text-3:    #6860A8;   /* subtle — used for labels only, not body copy */
 
-  /* ── Accent — warm amber gold ────────────────────────────── */
-  --c-accent:       #E8C547;
-  --c-accent-dim:   #C9A82E;
-  --c-accent-sub:   rgba(232, 197, 71, 0.08);
-  --c-accent-glow:  rgba(232, 197, 71, 0.18);
+  /* ── Accent — aurora violet & pink ───────────────────────── */
+  --c-accent:       #8B6FEF;   /* violet */
+  --c-accent-2:     #F897FE;   /* aurora pink */
+  --c-accent-3:     #483ACC;   /* deep royal blue */
+  --c-accent-dim:   #6B52CC;   /* dimmed violet */
+  --c-accent-sub:   rgba(139, 111, 239, 0.12);
+  --c-accent-glow:  rgba(139, 111, 239, 0.28);
+  --c-pink-glow:    rgba(248, 151, 254, 0.20);
+
+  /* ── Aurora gradient ─────────────────────────────────────── */
+  --aurora:       linear-gradient(135deg, #7B5EEA 0%, #935AF0 40%, #C264E8 70%, #F897FE 100%);
+  --aurora-soft:  linear-gradient(135deg, rgba(123,94,234,0.5) 0%, rgba(248,151,254,0.3) 100%);
+  --aurora-bg:    radial-gradient(ellipse at 20% 50%, rgba(123,94,234,0.25) 0%, transparent 60%),
+                  radial-gradient(ellipse at 80% 20%, rgba(248,151,254,0.18) 0%, transparent 55%),
+                  radial-gradient(ellipse at 60% 90%, rgba(72,58,204,0.20) 0%, transparent 50%);
+
+  /* ── Glass effect ────────────────────────────────────────── */
+  --glass-bg:     rgba(10, 16, 81, 0.52);
+  --glass-border: rgba(176, 160, 255, 0.30);
+  --glass-blur:   blur(16px) saturate(1.6);
 
   /* ── Typography ──────────────────────────────────────────── */
   --font-display: 'Cormorant Garamond', Georgia, serif;
@@ -29,17 +44,17 @@
   --font-body:    'Lora', Georgia, serif;
   --font-mono:    'Fira Code', 'Courier New', monospace;
 
-  /* ── Font sizes — editorial scale ────────────────────────── */
-  --fs-xs:    0.6875rem;   /* 11px — labels, eyebrows */
-  --fs-sm:    0.8125rem;   /* 13px — captions, meta */
-  --fs-base:  1rem;        /* 16px */
-  --fs-md:    1.125rem;    /* 18px */
-  --fs-lg:    1.375rem;    /* 22px */
-  --fs-xl:    1.75rem;     /* 28px */
-  --fs-2xl:   2.25rem;     /* 36px */
-  --fs-3xl:   3rem;        /* 48px */
-  --fs-4xl:   4.5rem;      /* 72px */
-  --fs-5xl:   6rem;        /* 96px */
+  /* ── Font sizes ──────────────────────────────────────────── */
+  --fs-xs:    0.6875rem;
+  --fs-sm:    0.8125rem;
+  --fs-base:  1rem;
+  --fs-md:    1.125rem;
+  --fs-lg:    1.375rem;
+  --fs-xl:    1.75rem;
+  --fs-2xl:   2.25rem;
+  --fs-3xl:   3rem;
+  --fs-4xl:   4.5rem;
+  --fs-5xl:   6rem;
   --fs-hero:  clamp(5rem, 12vw, 9.5rem);
 
   /* ── Spacing ─────────────────────────────────────────────── */
@@ -61,8 +76,8 @@
   --ease:     cubic-bezier(0.4, 0, 0.2, 1);
   --ease-out: cubic-bezier(0, 0, 0.2, 1);
   --t-fast:   120ms;
-  --t-base:   200ms;
-  --t-slow:   350ms;
+  --t-base:   220ms;
+  --t-slow:   380ms;
 
   /* ── Z-index ─────────────────────────────────────────────── */
   --z-above:   10;
@@ -70,25 +85,26 @@
   --z-overlay: 200;
 
   /* ── Layout ──────────────────────────────────────────────── */
-  --container: 1200px;
-  --gutter:    clamp(1.5rem, 5vw, 4rem);
+  --container:   1200px;
+  --gutter:      clamp(1.5rem, 5vw, 4rem);
   --section-gap: clamp(5rem, 10vw, 8rem);
 }
 
-/* ── Light mode ───────────────────────────────────────────── */
+/* ── Light mode (softer space) ────────────────────────────── */
 [data-theme="light"] {
-  --c-bg:        #F5F0E8;
-  --c-surface:   #EDE7D9;
-  --c-surface-2: #E2DBCE;
-  --c-border:    #D0C8B8;
-  --c-border-2:  #BDB5A2;
-  --c-text:      #1A1814;
-  --c-text-2:    #6B6257;
-  --c-text-3:    #9A8E82;
-  --c-accent:       #B8922A;
-  --c-accent-dim:   #956F1C;
-  --c-accent-sub:   rgba(184, 146, 42, 0.1);
-  --c-accent-glow:  rgba(184, 146, 42, 0.2);
+  --c-bg:        #0D0E2E;
+  --c-surface:   #131444;
+  --c-surface-2: #181A52;
+  --c-border:    rgba(139, 111, 239, 0.22);
+  --c-border-2:  rgba(139, 111, 239, 0.35);
+  --c-text:      #F0EEFF;
+  --c-text-2:    #A099D8;
+  --c-text-3:    #6860A8;
+  --c-accent:       #9B7EFF;
+  --c-accent-dim:   #7B60D8;
+  --c-accent-sub:   rgba(155, 126, 255, 0.15);
+  --c-accent-glow:  rgba(155, 126, 255, 0.30);
+  --glass-bg:     rgba(19, 20, 68, 0.65);
 }
 
 /* ── Reduced motion ──────────────────────────────────────── */

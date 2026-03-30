@@ -1,4 +1,4 @@
-/* ── Contact ─────────────────────────────────────────────────── */
+/* ── Contact — Space ────────────────────────────────────────── */
 
 .contact {
   background-color: var(--c-surface);
@@ -6,15 +6,31 @@
   overflow: hidden;
 }
 
-/* Ambient accent glow */
+/* Dual aurora orbs */
+.contact::before {
+  content: '';
+  position: absolute;
+  bottom: -20%;
+  left: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(123,94,234,0.22) 0%, rgba(72,58,204,0.10) 50%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(70px);
+  pointer-events: none;
+  z-index: 0;
+}
+
 .contact::after {
   content: '';
   position: absolute;
-  bottom: -30%;
-  right: -10%;
-  width: 50%;
-  height: 70%;
-  background: radial-gradient(ellipse, var(--c-accent-glow) 0%, transparent 65%);
+  top: -10%;
+  right: -5%;
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(248,151,254,0.18) 0%, transparent 65%);
+  border-radius: 50%;
+  filter: blur(60px);
   pointer-events: none;
   z-index: 0;
 }
@@ -52,7 +68,7 @@
   font-family: var(--font-body);
   font-size: var(--fs-md);
   font-style: italic;
-  line-height: 1.75;
+  line-height: 1.8;
   color: var(--c-text-2);
   max-width: 38ch;
   margin: 0;
@@ -63,33 +79,37 @@
   display: flex;
   flex-direction: column;
   gap: var(--sp-8);
-  padding-top: var(--sp-2);
+  padding: var(--sp-8);
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
 }
 
 .contact-email {
   font-family: var(--font-display);
-  font-size: clamp(var(--fs-lg), 2.5vw, var(--fs-2xl));
+  font-size: clamp(var(--fs-lg), 2.2vw, var(--fs-2xl));
   font-weight: 400;
-  color: var(--c-accent);
+  background: var(--aurora);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
   text-decoration: none;
   letter-spacing: -0.01em;
-  border-bottom: 1px solid var(--c-accent-sub);
-  padding-bottom: var(--sp-2);
-  transition: color var(--t-base) var(--ease),
-              border-color var(--t-base) var(--ease);
+  padding-bottom: var(--sp-3);
+  border-bottom: 1px solid var(--c-border-2);
   display: block;
   word-break: break-all;
+  transition: filter var(--t-base) var(--ease);
 }
 
 .contact-email:hover {
-  color: var(--c-accent-dim);
-  border-bottom-color: var(--c-accent-dim);
+  filter: brightness(1.15);
 }
 
 .contact-links {
   display: flex;
   flex-direction: column;
-  gap: var(--sp-2);
+  gap: var(--sp-1);
 }
 
 .contact-social-item {
@@ -111,7 +131,7 @@
 }
 
 .contact-social-item:hover {
-  color: var(--c-accent);
+  color: var(--c-text);
   padding-left: var(--sp-3);
 }
 

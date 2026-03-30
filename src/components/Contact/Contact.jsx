@@ -15,7 +15,7 @@ const Contact = () => {
           transition={{ duration: 0.6 }}
         >
           <span className="section-eyebrow">05</span>
-          <h2 className="section-heading">Contacto</h2>
+          <h2 className="section-heading">Contact</h2>
         </motion.div>
 
         <div className="contact-layout">
@@ -27,10 +27,10 @@ const Contact = () => {
             transition={{ duration: 0.7, delay: 0.1 }}
           >
             <h3 className="contact-headline">
-              ¿Tienes algo<br />en mente?
+              Got something<br />in mind?
             </h3>
             <p className="contact-sub">
-              Disponible para proyectos freelance, posiciones full-time y colaboraciones creativas.
+              Available for freelance projects, full-time positions, and creative collaborations.
             </p>
           </motion.div>
 

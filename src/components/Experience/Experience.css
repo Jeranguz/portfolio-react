@@ -1,7 +1,28 @@
-/* ── Experience ─────────────────────────────────────────────── */
+/* ── Experience — Space ─────────────────────────────────────── */
 
 .experience {
   background-color: var(--c-surface);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Right-side aurora orb */
+.experience::after {
+  content: '';
+  position: absolute;
+  top: 10%;
+  right: -15%;
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, rgba(139,111,239,0.18) 0%, rgba(248,151,254,0.08) 50%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+.experience .container {
+  position: relative;
+  z-index: 1;
 }
 
 /* ── List ─────────────────────────────────────────────────── */
@@ -18,10 +39,31 @@
   padding: var(--sp-10) 0;
   border-bottom: 1px solid var(--c-border);
   position: relative;
+  transition: background var(--t-base) var(--ease);
 }
 
 .exp-item:first-child {
   border-top: 1px solid var(--c-border);
+}
+
+/* Glass card on hover */
+.exp-item::before {
+  content: '';
+  position: absolute;
+  inset: var(--sp-2) calc(-1 * var(--sp-4));
+  background: var(--glass-bg);
+  border: 1px solid transparent;
+  opacity: 0;
+  transition: opacity var(--t-slow) var(--ease),
+              border-color var(--t-slow) var(--ease);
+  backdrop-filter: blur(12px);
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+.exp-item:hover::before {
+  opacity: 1;
+  border-color: var(--glass-border);
 }
 
 /* ── Index number ─────────────────────────────────────────── */
@@ -30,14 +72,20 @@
   font-size: var(--fs-4xl);
   font-weight: 300;
   line-height: 1;
-  color: var(--c-border-2);
+  color: var(--c-text-3);
   letter-spacing: -0.02em;
   padding-top: var(--sp-1);
-  transition: color var(--t-base) var(--ease);
+  position: relative;
+  z-index: 1;
+  transition: background var(--t-base) var(--ease),
+              -webkit-text-fill-color var(--t-base) var(--ease);
 }
 
 .exp-item:hover .exp-index {
-  color: var(--c-accent);
+  background: var(--aurora);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 /* ── Main content ─────────────────────────────────────────── */
@@ -45,6 +93,8 @@
   display: flex;
   flex-direction: column;
   gap: var(--sp-3);
+  position: relative;
+  z-index: 1;
 }
 
 .exp-top {
@@ -79,7 +129,7 @@
   text-transform: uppercase;
   color: var(--c-accent);
   padding: 2px var(--sp-2);
-  border: 1px solid var(--c-accent-sub);
+  border: 1px solid var(--c-border-2);
   background: var(--c-accent-sub);
 }
 
@@ -99,13 +149,16 @@
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--c-text-2);
+  background: var(--aurora);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .exp-desc {
   font-family: var(--font-body);
   font-size: var(--fs-base);
-  line-height: 1.75;
+  line-height: 1.8;
   color: var(--c-text-2);
   max-width: 68ch;
   margin: 0;
@@ -124,11 +177,7 @@
     grid-template-columns: 1fr;
     gap: var(--sp-3);
   }
-
-  .exp-index {
-    font-size: var(--fs-3xl);
-  }
-
+  .exp-index { font-size: var(--fs-3xl); }
   .exp-top {
     flex-direction: column;
     gap: var(--sp-2);
