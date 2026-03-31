@@ -286,7 +286,7 @@ export const projects = [
       "Designing a single-command Typer app without subcommand routing conflicts"
     ],
     mainImage: "/projects/gitai/repo.png",
-    link: null,
+    link: "https://pypi.org/project/gitai-cli/",
     github: "https://github.com/Jeranguz/gitai"
   }
 ];
