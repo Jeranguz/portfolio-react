@@ -9,7 +9,7 @@ export const personalInfo = {
   email: "Jeremyu4231@gmail.com",
   phone: "+506 6202-5052",
   linkedin: "linkedin.com/in/jeremygzm",
-  bio: `Full Stack Developer with 2+ years of hands-on experience designing, building, and deploying scalable web applications across the full stack in Agile environments. Proficient in modern frontend frameworks (React, Angular), RESTful API development (Django, Laravel), relational databases, and containerized deployments with Docker. Experienced leading frontend development, collaborating with cross-functional teams, and owning CI/CD pipelines from development to production. Passionate about clean, maintainable code, system reliability, and cloud-native technologies.`
+  bio: `Full Stack Developer with 2+ years of hands-on experience designing, building, and deploying scalable web applications across the full stack in Agile environments. Proficient in modern frontend frameworks (such as React), RESTful API development (Django, Laravel), relational databases, and containerized deployments with Docker. Experienced leading frontend development, collaborating with cross-functional teams, and owning CI/CD pipelines from development to production. Passionate about clean, maintainable code, system reliability, and cloud-native technologies.`
 };
 
 export const skills = {
@@ -22,7 +22,7 @@ export const skills = {
       },
       {
         category: "Frontend",
-        skills: ["React", "Angular", "React Native", "Tailwind CSS", "HTML5", "CSS3", "Bootstrap"]
+        skills: ["React", "Tailwind CSS", "HTML5", "CSS3", "Bootstrap"]
       },
       {
         category: "Backend",
@@ -34,7 +34,7 @@ export const skills = {
       },
       {
         category: "DevOps & Cloud",
-        skills: ["Docker", "Docker Compose", "AWS (EC2, S3, CloudWatch)", "Azure Fundamentals", "Jenkins", "Bitbucket Pipelines", "Linux/Unix"]
+        skills: ["Docker", "Docker Compose", "AWS (EC2, S3, CloudWatch, CloudFront, DynamoDB, Lambda, Route 53, API Gateway)", "Azure Fundamentals", "Jenkins", "Bitbucket Pipelines", "GitHub Actions", "Linux/Unix"]
       },
       {
         category: "Architecture & APIs",
@@ -135,42 +135,6 @@ export const experience = [
 export const projects = [
   {
     id: 1,
-    title: "Cross-Platform App — Marlin",
-    category: "Mobile & Web",
-    thumbnail: "/projects/marlin-app.jpg",
-    year: "2024",
-    description: "Consumer-facing cross-platform application built with React and React Native, sharing business logic across web and iOS/Android targets.",
-    problem: "The product team needed a consistent user experience across web and mobile with rapid iteration capability for an early-stage consumer prototype.",
-    solution: "Built shared UI components with React and React Native, defined Django REST API contracts with the backend team, and established codebase conventions that accelerated onboarding for new contributors.",
-    results: [
-      "Successful delivery of a functional cross-platform prototype for web, iOS, and Android",
-      "Established frontend conventions that improved code readability and contributor onboarding",
-      "Clean API contract definition reduced integration friction between frontend and backend layers"
-    ],
-    role: "Frontend & Full Stack Developer",
-    methodology: "Agile · Component-Driven Development",
-    technologies: {
-      frontend: ["React Native", "React", "Tailwind CSS"],
-      backend: ["Django REST Framework", "Node.js", "PostgreSQL"],
-      devops: ["AWS", "Docker", "CI/CD"]
-    },
-    responsibilities: [
-      "Built responsive web and mobile UI components using React and React Native",
-      "Translated design mockups into interactive, functional components",
-      "Collaborated with backend engineers to define and consume REST API contracts",
-      "Established component structure and file organization conventions",
-      "Integrated Node.js microservices for internal test automation"
-    ],
-    challenges: [
-      "Maintaining UI/UX consistency across web and native mobile platforms",
-      "Rapidly iterating on components based on early-stage product feedback",
-      "Defining clean API contracts while the backend was still evolving"
-    ],
-    link: null,
-    github: null
-  },
-  {
-    id: 2,
     title: "PyCon Latam 2026 — Conference Platform",
     category: "Web Platform",
     thumbnail: "/projects/pycon-latam-2026.jpg",
@@ -234,7 +198,7 @@ export const projects = [
     github: null
   },
   {
-    id: 3,
+    id: 2,
     title: "Cloud Resume Challenge — AWS",
     category: "Cloud & DevOps",
     thumbnail: "/projects/cloud-resume.jpg",
@@ -284,6 +248,46 @@ export const projects = [
     ],
     link: "https://jeremy-guzman.com",
     github: "https://github.com/Jeranguz"
+  },
+  {
+    id: 3,
+    title: "gitai — AI-Powered Commit Messages",
+    category: "CLI Tool / Open Source",
+    thumbnail: "/projects/gitai.jpg",
+    year: "2025",
+    description: "Open source CLI tool that reads staged git changes and uses AI to suggest meaningful, Conventional Commits-formatted commit messages. Supports Ollama, OpenAI, and Anthropic.",
+    problem: "Developers waste time writing generic or inconsistent commit messages. There was no lightweight CLI tool that could analyze actual staged diffs and propose specific, professional commit messages using local or cloud AI.",
+    solution: "Built a Python CLI with Typer and litellm that reads git staged diffs, validates them for meaningful content, and sends a structured prompt to the configured AI provider — returning three interactive suggestions the user can pick from or override.",
+    results: [
+      "Supports three AI providers (Ollama, OpenAI, Anthropic) with zero code changes via litellm",
+      "Prevents AI hallucinations on empty diffs through a custom diff validation layer",
+      "Fully configurable via ~/.gitai.toml with sensible defaults — works out of the box",
+      "Cross-platform compatible including Windows UTF-8 encoding edge cases"
+    ],
+    role: "Author & Maintainer",
+    methodology: "Open Source · CLI-First Design · Conventional Commits",
+    technologies: {
+      frontend: [],
+      backend: ["Python", "Typer", "litellm", "Rich", "questionary", "GitPython"],
+      devops: ["PyPI", "Git", "Ollama", "OpenAI API", "Anthropic API"]
+    },
+    responsibilities: [
+      "Designed and built the full CLI architecture across 5 focused modules",
+      "Implemented git diff reading and meaningful content validation",
+      "Integrated litellm for unified multi-provider AI support",
+      "Built interactive commit message picker with questionary",
+      "Handled cross-platform edge cases including Windows encoding bugs",
+      "Designed TOML-based config system with automatic first-run initialization"
+    ],
+    challenges: [
+      "Preventing AI hallucinations when staged diffs had no meaningful content",
+      "Normalizing AI provider interfaces without locking users to a single model",
+      "Handling Windows UTF-8 encoding errors from subprocess git output",
+      "Designing a single-command Typer app without subcommand routing conflicts"
+    ],
+    mainImage: "/projects/gitai/repo.png",
+    link: null,
+    github: "https://github.com/Jeranguz/gitai"
   }
 ];
 
