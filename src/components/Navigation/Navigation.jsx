@@ -38,14 +38,22 @@ const Navigation = ({ theme, toggleTheme }) => {
 
   const handleNavClick = (e, href) => {
     e.preventDefault();
-    setIsOpen(false);
 
-    const element = document.querySelector(href);
-    if (element) {
-      scrollToSection(href);
+    const doScroll = () => {
+      const element = document.querySelector(href);
+      if (element) {
+        scrollToSection(href);
+      } else {
+        navigate('/');
+        setTimeout(() => scrollToSection(href), 100);
+      }
+    };
+
+    if (isOpen) {
+      setIsOpen(false);
+      setTimeout(doScroll, 320);
     } else {
-      navigate('/');
-      setTimeout(() => scrollToSection(href), 100);
+      doScroll();
     }
   };
 
