@@ -236,49 +236,90 @@
 
 /* ── Responsive ───────────────────────────────────────────── */
 
-/* Tablet: 2 columns */
-@media (max-width: 960px) {
+/* Tablet: 2 columns, 3rd card goes full-width landscape */
+@media (max-width: 900px) and (min-width: 581px) {
   .projects-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: var(--sp-5);
+    gap: var(--sp-4);
   }
 
-  .project-card {
-    aspect-ratio: 3 / 4;
-  }
-
-  /* Last card alone: center it, cap width */
   .project-card:last-child:nth-child(odd) {
     grid-column: 1 / -1;
-    max-width: 50%;
-    margin: 0 auto;
+    aspect-ratio: 21 / 8;
   }
 }
 
-/* Mobile: single column, landscape ratio */
+/* Mobile: single column, stacked layout (image top, content below) */
 @media (max-width: 580px) {
   .projects-grid {
     grid-template-columns: 1fr;
     gap: var(--sp-4);
   }
 
+  /* Switch from overlay to stacked layout */
   .project-card {
-    aspect-ratio: 16 / 11;
+    aspect-ratio: unset;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    transform: none !important; /* no lift on touch */
   }
 
-  /* Always show content on mobile (no hover) */
+  /* Image: fixed-height strip at the top */
+  .project-card-img-wrap {
+    position: relative;
+    width: 100%;
+    height: 180px;
+    flex-shrink: 0;
+  }
+
+  .project-card-img {
+    filter: brightness(0.92) saturate(0.88);
+  }
+
+  .project-card:hover .project-card-img,
+  .project-card:focus-visible .project-card-img {
+    transform: none;
+    filter: brightness(0.92) saturate(0.88);
+  }
+
+  /* Overlay: sits below the image, no longer absolute */
+  .project-card-overlay {
+    position: relative;
+    inset: auto;
+    flex: 1;
+    background: rgba(7, 11, 59, 0.98);
+    padding: var(--sp-4);
+    justify-content: flex-start;
+    gap: var(--sp-3);
+  }
+
+  /* Body: reset the negative margins from desktop */
+  .project-card-body {
+    background: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    margin: 0;
+    padding: 0;
+    border-top: none;
+  }
+
+  /* Always show reveal content (no hover on touch) */
   .project-card .project-card-reveal {
-    max-height: 200px;
+    max-height: 300px;
     opacity: 1;
     transform: translateY(0);
   }
 
-  .project-card-desc {
-    -webkit-line-clamp: 2;
+  /* Keep title color (no aurora gradient without hover intent) */
+  .project-card .project-card-title {
+    background: none;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+    -webkit-text-fill-color: var(--c-text);
   }
 
-  .project-card:last-child:nth-child(odd) {
-    grid-column: auto;
-    max-width: 100%;
+  .project-card-desc {
+    -webkit-line-clamp: 2;
   }
 }
