@@ -11,8 +11,6 @@ const Projects = () => {
     window.scrollTo(0, 0);
   };
 
-  const total = String(projects.length).padStart(2, '0');
-
   return (
     <section id="projects" className="projects section">
       <div className="container">
@@ -27,49 +25,63 @@ const Projects = () => {
           <h2 className="section-heading">Projects</h2>
         </motion.div>
 
-        <div className="projects-list">
+        <div className="projects-grid">
           {projects.map((project, index) => (
             <motion.article
               key={project.id}
-              className="project-item"
-              initial={{ opacity: 0, y: 32 }}
+              className="project-card"
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.12, duration: 0.6 }}
+              transition={{ delay: index * 0.15, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
               onClick={() => handleProjectClick(project.id)}
               role="button"
               tabIndex={0}
               onKeyDown={e => e.key === 'Enter' && handleProjectClick(project.id)}
               aria-label={`View project: ${project.title}`}
             >
-              <div className="project-item-top">
-                <div className="project-num" aria-hidden="true">
-                  {String(index + 1).padStart(2, '0')}
-                  <span>/{total}</span>
-                </div>
-                <div className="project-meta-row">
-                  <span className="project-cat">{project.category}</span>
-                  <span className="project-yr">{project.year}</span>
-                </div>
+              {/* Full-bleed image */}
+              <div className="project-card-img-wrap">
+                <img
+                  src={project.thumbnail}
+                  alt={project.title}
+                  className="project-card-img"
+                  loading="lazy"
+                  draggable="false"
+                />
               </div>
 
-              <h3 className="project-title">{project.title}</h3>
-              <p className="project-desc">{project.description}</p>
-
-              <div className="project-foot">
-                <div className="project-tech-row">
-                  {project.technologies.frontend &&project.technologies.frontend.slice(0, 3).map(tech => (
-                    <span key={tech} className="tech-chip">{tech}</span>
-                  ))}
-                  {project.technologies.backend && project.technologies.backend.slice(0, 2).map(tech => (
-                    <span key={tech} className="tech-chip">{tech}</span>
-                  ))}
-                  {project.technologies.devops && project.technologies.devops.slice(0, 2).map(tech => (
-                    <span key={tech} className="tech-chip">{tech}</span>
-                  ))}
+              {/* Gradient overlay with content */}
+              <div className="project-card-overlay">
+                {/* Top meta */}
+                <div className="project-card-top">
+                  <span className="project-card-cat">{project.category}</span>
+                  <span className="project-card-yr">{project.year}</span>
                 </div>
-                <div className="project-cta" aria-hidden="true">
-                  View case <span>→</span>
+
+                {/* Bottom content */}
+                <div className="project-card-body">
+                  <h3 className="project-card-title">{project.title}</h3>
+
+                  <div className="project-card-reveal">
+                    <p className="project-card-desc">{project.description}</p>
+
+                    <div className="project-card-tags">
+                      {project.technologies.frontend?.slice(0, 2).map(tech => (
+                        <span key={tech} className="tech-chip">{tech}</span>
+                      ))}
+                      {project.technologies.backend?.slice(0, 2).map(tech => (
+                        <span key={tech} className="tech-chip">{tech}</span>
+                      ))}
+                      {project.technologies.devops?.slice(0, 1).map(tech => (
+                        <span key={tech} className="tech-chip">{tech}</span>
+                      ))}
+                    </div>
+
+                    <div className="project-card-cta">
+                      View case <span className="project-card-arrow">→</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </motion.article>

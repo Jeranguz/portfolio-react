@@ -1,4 +1,4 @@
-/* ── Projects — Space ───────────────────────────────────────── */
+/* ── Projects — Gallery Grid ─────────────────────────────── */
 
 .projects {
   background-color: var(--c-bg);
@@ -6,16 +6,16 @@
   overflow: hidden;
 }
 
-/* Aurora accent bottom-center */
+/* Aurora accent */
 .projects::before {
   content: '';
   position: absolute;
-  bottom: -5%;
-  left: 30%;
-  width: 600px;
-  height: 400px;
-  background: radial-gradient(ellipse, rgba(123,94,234,0.15) 0%, rgba(248,151,254,0.08) 50%, transparent 70%);
-  filter: blur(60px);
+  bottom: -10%;
+  left: 25%;
+  width: 700px;
+  height: 500px;
+  background: radial-gradient(ellipse, rgba(123,94,234,0.13) 0%, rgba(248,151,254,0.06) 50%, transparent 70%);
+  filter: blur(80px);
   pointer-events: none;
 }
 
@@ -24,194 +24,261 @@
   z-index: 1;
 }
 
-/* ── List layout ──────────────────────────────────────────── */
-.projects-list {
+/* ── Grid ────────────────────────────────────────────────── */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-6);
+}
+
+/* ── Card ────────────────────────────────────────────────── */
+.project-card {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  outline: none;
+  aspect-ratio: 4 / 5;
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  transition:
+    border-color var(--t-slow) var(--ease),
+    box-shadow var(--t-slow) var(--ease),
+    transform var(--t-slow) var(--ease);
+}
+
+.project-card:hover,
+.project-card:focus-visible {
+  border-color: rgba(139, 111, 239, 0.55);
+  box-shadow:
+    0 0 0 1px rgba(139, 111, 239, 0.18),
+    0 20px 56px rgba(123, 94, 234, 0.22),
+    0 4px 16px rgba(0, 0, 0, 0.4);
+  transform: translateY(-5px);
+}
+
+.project-card:focus-visible {
+  outline: 2px solid var(--c-accent);
+  outline-offset: 3px;
+}
+
+/* ── Image ───────────────────────────────────────────────── */
+.project-card-img-wrap {
+  position: absolute;
+  inset: 0;
+}
+
+.project-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  transition:
+    transform 520ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 520ms var(--ease);
+  filter: brightness(0.72) saturate(0.8);
+}
+
+.project-card:hover .project-card-img,
+.project-card:focus-visible .project-card-img {
+  transform: scale(1.07);
+  filter: brightness(0.55) saturate(1.05);
+}
+
+/* ── Gradient overlay ────────────────────────────────────── */
+.project-card-overlay {
+  position: absolute;
+  inset: 0;
   display: flex;
   flex-direction: column;
-  gap: 0;
+  justify-content: space-between;
+  padding: var(--sp-5);
+  background: linear-gradient(
+    to bottom,
+    rgba(3, 4, 44, 0.55) 0%,
+    rgba(3, 4, 44, 0.05) 38%,
+    rgba(3, 4, 44, 0.20) 55%,
+    transparent 65%
+  );
 }
 
-.project-item {
-  padding: var(--sp-10) 0;
-  border-bottom: 1px solid var(--c-border);
-  cursor: pointer;
-  position: relative;
-  outline: none;
-  transition: border-color var(--t-base) var(--ease);
-}
-
-.project-item:first-child {
-  border-top: 1px solid var(--c-border);
-}
-
-/* Glass card reveal */
-.project-item::after {
-  content: '';
-  position: absolute;
-  inset: var(--sp-2) calc(-1 * var(--gutter));
-  background: var(--glass-bg);
-  border: 1px solid transparent;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity var(--t-slow) var(--ease),
-              border-color var(--t-slow) var(--ease);
-  backdrop-filter: blur(16px);
-}
-
-.project-item:hover::after,
-.project-item:focus::after {
-  opacity: 1;
-  border-color: var(--glass-border);
-}
-
-/* Aurora left-bar */
-.project-item::before {
-  content: '';
-  position: absolute;
-  left: calc(-1 * var(--gutter));
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: var(--aurora);
-  transform: scaleY(0);
-  transition: transform var(--t-slow) var(--ease-out);
-  transform-origin: bottom;
-  z-index: 1;
-}
-
-.project-item:hover::before,
-.project-item:focus::before {
-  transform: scaleY(1);
-}
-
-/* ── Inner content sits above glass card ──────────────────── */
-.project-item-top,
-.project-title,
-.project-desc,
-.project-foot {
-  position: relative;
-  z-index: 1;
-}
-
-/* ── Top row ──────────────────────────────────────────────── */
-.project-item-top {
+/* ── Top: category + year ────────────────────────────────── */
+.project-card-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: var(--sp-4);
 }
 
-.project-num {
-  font-family: var(--font-display);
-  font-size: var(--fs-5xl);
-  font-weight: 300;
-  line-height: 1;
-  color: var(--c-text-3);
-  letter-spacing: -0.03em;
-  transition: background var(--t-base) var(--ease),
-              -webkit-text-fill-color var(--t-base) var(--ease);
-}
-
-.project-num span {
-  font-size: var(--fs-lg);
-  letter-spacing: -0.01em;
-  color: var(--c-text-3);
-}
-
-.project-item:hover .project-num {
-  background: var(--aurora);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.project-meta-row {
-  display: flex;
-  align-items: center;
-  gap: var(--sp-4);
-}
-
-.project-cat {
+.project-card-cat {
   font-family: var(--font-ui);
   font-size: var(--fs-xs);
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--c-accent);
-  padding: 2px var(--sp-3);
-  border: 1px solid var(--c-border-2);
-  background: var(--c-accent-sub);
+  padding: 3px var(--sp-3);
+  border: 1px solid rgba(139, 111, 239, 0.45);
+  border-radius: 2px;
+  background: rgba(3, 4, 44, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
-.project-yr {
+.project-card-yr {
   font-family: var(--font-ui);
   font-size: var(--fs-xs);
   letter-spacing: 0.1em;
-  color: var(--c-text-3);
+  color: rgba(240, 238, 255, 0.85);
+  text-shadow: 0 1px 4px rgba(3, 4, 44, 0.9);
 }
 
-/* ── Title & description ──────────────────────────────────── */
-.project-title {
-  font-family: var(--font-display);
-  font-size: clamp(var(--fs-2xl), 4vw, var(--fs-3xl));
-  font-weight: 400;
-  color: var(--c-text);
-  line-height: 1.1;
-  letter-spacing: -0.01em;
-  margin-bottom: var(--sp-3);
-}
-
-.project-desc {
-  font-family: var(--font-body);
-  font-size: var(--fs-base);
-  line-height: 1.8;
-  color: var(--c-text-2);
-  max-width: 65ch;
-  margin: 0 0 var(--sp-5);
-}
-
-/* ── Foot ─────────────────────────────────────────────────── */
-.project-foot {
+/* ── Bottom: content body ────────────────────────────────── */
+.project-card-body {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--sp-4);
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: var(--sp-3);
+  /* Solid dark panel — guarantees contrast regardless of image color */
+  background: linear-gradient(
+    to bottom,
+    rgba(3, 4, 44, 0.82) 0%,
+    rgba(3, 4, 44, 0.97) 40%
+  );
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  /* Extend edge-to-edge past the overlay padding */
+  margin: 0 calc(-1 * var(--sp-5)) calc(-1 * var(--sp-5));
+  padding: var(--sp-5) var(--sp-5) var(--sp-5);
+  border-top: 1px solid rgba(139, 111, 239, 0.12);
 }
 
-.project-tech-row {
+.project-card-title {
+  font-family: var(--font-display);
+  font-size: clamp(var(--fs-lg), 1.8vw, var(--fs-xl));
+  font-weight: 500;
+  color: var(--c-text);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  transition: background var(--t-base) var(--ease);
+}
+
+.project-card:hover .project-card-title,
+.project-card:focus-visible .project-card-title {
+  background: var(--aurora);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ── Reveal block: desc + tags + cta ────────────────────── */
+.project-card-reveal {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    max-height 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 360ms var(--ease),
+    transform 360ms var(--ease);
+}
+
+.project-card:hover .project-card-reveal,
+.project-card:focus-visible .project-card-reveal {
+  max-height: 200px;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.project-card-desc {
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  line-height: 1.7;
+  color: rgba(176, 168, 220, 0.88);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin: 0;
+}
+
+.project-card-tags {
   display: flex;
   flex-wrap: wrap;
   gap: var(--sp-2);
 }
 
-.project-cta {
+.project-card-cta {
   font-family: var(--font-ui);
   font-size: var(--fs-sm);
   font-weight: 600;
   letter-spacing: 0.06em;
-  color: var(--c-text-3);
-  flex-shrink: 0;
-  transition: color var(--t-base) var(--ease),
-              transform var(--t-base) var(--ease);
-}
-
-.project-item:hover .project-cta,
-.project-item:focus .project-cta {
   background: var(--aurora);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  transform: translateX(6px);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+.project-card-arrow {
+  display: inline-block;
+  transition: transform var(--t-base) var(--ease);
+}
+
+.project-card:hover .project-card-arrow,
+.project-card:focus-visible .project-card-arrow {
+  transform: translateX(5px);
 }
 
 /* ── Responsive ───────────────────────────────────────────── */
-@media (max-width: 640px) {
-  .project-item::before { left: 0; }
-  .project-item::after  { inset: 0; }
-  .project-num { font-size: var(--fs-3xl); }
-  .project-foot {
-    flex-direction: column;
-    align-items: flex-start;
+
+/* Tablet: 2 columns */
+@media (max-width: 960px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--sp-5);
+  }
+
+  .project-card {
+    aspect-ratio: 3 / 4;
+  }
+
+  /* Last card alone: center it, cap width */
+  .project-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    max-width: 50%;
+    margin: 0 auto;
+  }
+}
+
+/* Mobile: single column, landscape ratio */
+@media (max-width: 580px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: var(--sp-4);
+  }
+
+  .project-card {
+    aspect-ratio: 16 / 11;
+  }
+
+  /* Always show content on mobile (no hover) */
+  .project-card .project-card-reveal {
+    max-height: 200px;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .project-card-desc {
+    -webkit-line-clamp: 2;
+  }
+
+  .project-card:last-child:nth-child(odd) {
+    grid-column: auto;
+    max-width: 100%;
   }
 }
